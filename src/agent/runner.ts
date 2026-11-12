@@ -1,5 +1,5 @@
 // Replay runner for the Grok co-pilot: plays data/agent/script.json with typing and the cursor. No network.
-import { agentScript, isCitable, resolveCitation } from '../components/data';
+import { agentScript, isCitable, resolveCitation, rowsById } from '../components/data';
 import { getState, hooks, pushStep, setState, type Selection } from '../components/store';
 import { runAction, type Action } from './actions';
 
@@ -65,8 +65,47 @@ export function next() {
 }
 
 const words = (s: string) => new Set(s.toLowerCase().match(/[a-z0-9]+/g) ?? []);
-/** Typed prompt in replay mode: run the closest scripted step, or say it is not in the script. */
-export function ask(prompt: string) {
+
+/** Compact row index sent to the live proxy so Grok can only cite real, usable rows. */
+function rowIndex(): string[] {
+  const out: string[] = [];
+  for (const [id, r] of rowsById) {
+    if (!isCitable(id)) continue;
+    const v = r.value === undefined || r.value === null ? '' : `${r.value}${r.unit ? ' ' + r.unit : ''}`;
+    out.push(`${id} | ${String(r.claim ?? '').slice(0, 160)} | ${v} | ${r.status}`);
+  }
+  return out;
+}
+
+/** Live Grok via the dev-server proxy (/api/grok). Returns null if offline so the caller can fall back. */
+async function askLive(prompt: string): Promise<ScriptStep | null> {
+  const s = getState();
+  setState((st) => ({ grok: { ...st.grok, busy: true, status: 'Grok · thinking…' } }));
+  try {
+    const r = await fetch('/api/grok', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt,
+        round: s.round,
+        view: s.view,
+        layers: Object.keys(s.layers),
+        selection: s.selection ? { id: s.selection.id, label: s.selection.label, citation_ids: s.selection.citation_ids } : null,
+        rows: rowIndex(),
+      }),
+    });
+    if (!r.ok) throw new Error(`proxy ${r.status}`);
+    const j = await r.json();
+    return { prompt, reply: String(j.reply ?? ''), actions: Array.isArray(j.actions) ? (j.actions as Action[]) : [] };
+  } catch (err) {
+    console.warn('[grok] live unavailable', err);
+    return null;
+  } finally {
+    setState((st) => ({ grok: { ...st.grok, busy: false, status: '' } }));
+  }
+}
+
+function closest(prompt: string): { step: ScriptStep | null; score: number } {
   const w = words(prompt);
   let best: ScriptStep | null = null;
   let score = 0;
@@ -78,8 +117,22 @@ export function ask(prompt: string) {
       best = s;
     }
   }
-  if (best && score >= 0.5) return void play({ ...best, prompt });
-  void play({ prompt, reply: 'Not in the recorded script. Replay mode only runs recorded steps; live Grok is not wired in this build.', actions: [] });
+  return { step: best, score };
+}
+
+/**
+ * Typed prompt.
+ * ?mode=live: always ask live Grok; if it is offline, fall back to the closest recorded step.
+ * replay/stage: run the closest recorded step; if none matches, try live Grok (works when the host runs `npm run dev` with a key).
+ */
+export async function ask(prompt: string) {
+  if (busy) return;
+  const { step, score } = closest(prompt);
+  if (requestedMode !== 'live' && step && score >= 0.5) return void play({ ...step, prompt });
+  const live = await askLive(prompt);
+  if (live) return void play(live);
+  if (step && score >= 0.5) return void play({ ...step, prompt, reply: `Grok is offline, using replay. ${step.reply}` });
+  void play({ prompt, reply: 'Grok is offline and this is not in the recorded script. Start the app with `npm run dev` and XAI_API_KEY in .env for live answers.', actions: [] });
 }
 
 /** "Ask Grok about this": in replay there is no model call, so the answer is assembled by code from the cited rows. */
@@ -101,5 +154,5 @@ export function askAbout(sel: Selection) {
 }
 
 hooks.ask = askAbout;
-hooks.prompt = ask;
+hooks.prompt = (p: string) => void ask(p);
 hooks.next = next;

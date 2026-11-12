@@ -28,14 +28,14 @@ export function GrokBar() {
           const p = draft.trim();
           if (!p || g.busy) return;
           setDraft('');
-          ask(p);
+          void ask(p);
         }}
       >
         <span className={`grok-orb ${g.busy ? 'busy' : ''}`}>G</span>
         <input id="grok-input" value={g.busy ? g.input : draft} onChange={(e) => setDraft(e.target.value)} placeholder="Ask Grok…" autoComplete="off" readOnly={g.busy} />
         <span className="grok-hint">Space runs the next step</span>
-        <span className={placeholderScript || requestedMode !== 'replay' ? 'badge-amber' : 'badge'} title="Replay plays data/agent/script.json. Live Grok is not wired in this build.">
-          replay{placeholderScript ? ' · placeholder script' : ''}
+        <span className={requestedMode === 'live' ? 'badge' : placeholderScript ? 'badge-amber' : 'badge'} title="Live: typed prompts go to Grok via the dev-server proxy (/api/grok, key in .env). Replay: plays data/agent/script.json; unmatched prompts try live Grok.">
+          {requestedMode === 'live' ? 'live Grok' : `replay${placeholderScript ? ' · placeholder script' : ''}`}
         </span>
       </form>
     </div>
