@@ -1,0 +1,44 @@
+{
+  "site": "Ratcliffe-on-Soar / M1 J24 / East Midlands Gateway",
+  "number_of_sales": 67,
+  "date_range": {
+    "min": "2023-12-01",
+    "max": "2026-09-30"
+  },
+  "region": {
+    "type": "town_city_filter",
+    "places": [
+      "Nottingham",
+      "Derby",
+      "Leicester",
+      "Castle Donington",
+      "Kegworth",
+      "Long Eaton",
+      "Loughborough"
+    ]
+  },
+  "median_yield": {
+    "value": 6.43,
+    "unit": "percent",
+    "n_obs": 28
+  },
+  "price_per_sq_ft": {
+    "currency": "USD",
+    "lower_quartile": 110.2711,
+    "upper_quartile": 153.7561,
+    "n_obs": 36
+  },
+  "related_counts": {
+    "data_centre_sales_and_construction": {
+      "value": 8,
+      "n_obs": 8,
+      "citation_ids": ["MSCI-R2"]
+    },
+    "development_land_sales": {
+      "value": 47,
+      "n_obs": 47,
+      "citation_ids": ["MSCI-R3"]
+    }
+  },
+  "citation_ids": ["MSCI-R1"]
+}

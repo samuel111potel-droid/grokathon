@@ -1,0 +1,26 @@
+[
+  {
+    "id": "MSCI-R1",
+    "tool": "get_rca_transactions",
+    "query_summary": "Industrial and logistics property sales in Nottingham, Derby, Leicester, Castle Donington, Kegworth, Long Eaton, and Loughborough, United Kingdom; transaction date 2023-11-12 to 2026-11-12",
+    "retrieved": "2026-11-12T21:48:01Z",
+    "sha256": "7f59dc92c8c433b49c2c60b7416414af1ec2345a5a6862df0bf40baf58ab6ce5",
+    "display_note": "Aggregated yield/floor benchmark only; no row-level MSCI records stored in repository."
+  },
+  {
+    "id": "MSCI-R2",
+    "tool": "get_rca_transactions",
+    "query_summary": "Data centre sales and construction in Nottingham, Derby, Leicester, Castle Donington, Kegworth, Long Eaton, and Loughborough, United Kingdom; transaction or construction date 2000-01-01 to 2026-11-12",
+    "retrieved": "2026-11-12T21:50:26Z",
+    "sha256": "e7d6fbc1c15d524b51bc642add7a8547cc6a8ea8dd332834b0e988fe9be5e9f3",
+    "display_note": "Aggregated project/sale count only; no row-level MSCI records stored in repository."
+  },
+  {
+    "id": "MSCI-R3",
+    "tool": "get_rca_transactions",
+    "query_summary": "Development land and development site sales in Nottingham, Derby, Leicester, Castle Donington, Kegworth, Long Eaton, and Loughborough, United Kingdom; last 5 years through 2026-11-12",
+    "retrieved": "2026-11-12T21:48:09Z",
+    "sha256": "35ec4ebc8c96f264edfca36e241558d50f24936dfd65fd4a65561a1264fb6402",
+    "display_note": "Aggregated land-sale count only; no row-level MSCI records stored in repository."
+  }
+]
