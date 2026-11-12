@@ -75,7 +75,10 @@ function formatValue(fact: FactRow | undefined, fallback: string): string {
   const raw = Array.isArray(fact.value)
     ? fact.value.join('–')
     : String(fact.value);
-  return `${raw} ${fact.unit}`.trim();
+  const unit = /unit not printed|field /i.test(fact.unit)
+    ? 'MVA'
+    : fact.unit;
+  return `${raw} ${unit}`.trim();
 }
 
 export default function App() {
