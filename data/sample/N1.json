@@ -1,0 +1,14 @@
+{
+  "id": "N1",
+  "claim": "Assumed generator source sound pressure level used for noiseAtHome estimates",
+  "value": 90,
+  "unit": "dB",
+  "lat": 52.865,
+  "lon": -1.255,
+  "source_org": "Hackathon assumption",
+  "url": "https://www.gov.uk/guidance/noise-policy-statement-for-england",
+  "quote": "Assumed 90 dB at 10 m for each generator; simple point-source fall-off, not an acoustic assessment.",
+  "retrieved": "2026-11-12",
+  "status": "assumption",
+  "check": "pass"
+}
