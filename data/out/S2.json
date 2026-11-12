@@ -11,6 +11,7 @@
   "quote": "8x 1U 33kW (6x 5.5kW PSUs), total power 132kW",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "about 130 kW per AI training rack",
   "verdict": "agrees",
   "note": "Same datasheet gives operating power 125kW to 135kW."
@@ -27,6 +28,7 @@
   "quote": "The average of the modal densities in our total sample reaches almost 9 kW",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "about 10 kW per standard cloud rack",
   "verdict": "differs",
   "note": "Survey covers all operators, not cloud only. Excluding sites at 30 kW or more the figure is 7.5 kW ('comes to 7.5 kW in our 2025 survey')."
@@ -59,6 +61,7 @@
   "quote": "Part A(1) (a) Burning any fuel in an appliance with a rated thermal input of 50 or more megawatts.",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "permitting starts at 50 MW thermal",
   "verdict": "agrees (Part A(1) only)",
   "note": "Aggregation rule: two or more appliances on the same site by the same operator with aggregate 50 MW or more are treated as one."
@@ -75,6 +78,7 @@
   "quote": "“medium combustion plant” means a combustion plant with a rated thermal input equal to or greater than 1 megawatt but less than 50 megawatts",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "permitting starts at 50 MW thermal",
   "verdict": "differs",
   "note": "Permitting starts at 1 MW thermal (medium combustion plant and specified generator rules), not 50 MW. 50 MW is the Part A(1) threshold."
@@ -91,6 +95,7 @@
   "quote": "An acre/critical MW ratio of 1:1 is a good general guide",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "about 4 MW of IT load per acre",
   "verdict": "differs",
   "note": "Rule of thumb in an opinion piece, not a standard. The team figure is 4 times this."
@@ -107,6 +112,7 @@
   "quote": "about £677,000 per grid MW at Didcot",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "about £1m per MW",
   "verdict": "differs",
   "note": "Secondary source: Ampervia's own division of £203m for a 300 MW grid connection; the RWE annual report itself was not opened. Per grid MW, not IT MW."
@@ -123,6 +129,7 @@
   "quote": "Industrial sheet: East Midlands | E63001992 | Nottingham | 850000 (column £/ha)",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "industrial land value per acre in the East Midlands (no team number given)",
   "verdict": "no team figure to compare",
   "note": "Published per hectare; 850,000 / 2.471 = about £344,000 per acre by arithmetic. Other East Midlands areas range 500,000 (Lincoln) to 1,000,000 (Northampton). Policy-appraisal values, which the publisher says are not market values. Distribution land for East Midlands is 2,000,000 £/ha on the Distribution sheet."
@@ -139,6 +146,7 @@
   "quote": "Sound Pressure Levels (dBA) at 7m (23 ft) ... Level 2 Sound Attenuated Enclosure (Steel) 250 ekW ... 74; 350 ... 71",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "typical generator noise at a stated distance (no team number given)",
   "verdict": "no team figure to compare",
   "note": "Range is 71 to 74 dB(A) across 250 to 600 ekW. Data centre sets of 2 MW or more will differ."
@@ -155,6 +163,7 @@
   "quote": "This MID supplements BS 4142:2014+A1:2019 Method for rating and assessing industrial and commercial sound (BS 4142).",
   "retrieved": "2026-11-12T20:54Z",
   "status": "found",
+  "check": "pass",
   "team_figure": "UK standard used to assess industrial noise at homes",
   "verdict": "agrees",
   "note": "Value is the standard's name, so value is null."
