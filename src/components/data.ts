@@ -62,8 +62,10 @@ for (const k of EVIDENCE_KEYS) {
     if (!r || !r.id) continue;
     if (r.check || r.status === 'found') checked++;
     if (r.check === 'pass') passed++;
-    if (r.check === 'fail') {
-      failedIds.add(r.id); // failed rows never reach the screen
+    // Only Red Team passes reach the screen: a 'found' row needs check === 'pass'.
+    // Assumption and not_found rows stay, with their labels.
+    if (r.check === 'fail' || (r.status === 'found' && r.check !== 'pass')) {
+      failedIds.add(r.id);
       continue;
     }
     kept.push(r);
@@ -135,7 +137,10 @@ export interface Pt {
   lat: number;
   citation_ids: string[];
 }
+// A receptor pin must rest on at least one usable row that is not 'not_found' (a "none found" row is not a home).
+const pinnable = (ids: string[]) => !ids.length || ids.some((id) => rowsById.get(id)?.status === 'assumption' || rowsById.get(id)?.status === 'found');
 export const receptorPts: Pt[] = receptors.data.features
+  .filter((f: any) => pinnable(f?.properties?.citation_ids ?? []))
   .map((f: any, i: number) => {
     const c = geomCenter(f.geometry);
     if (!c) return null;
