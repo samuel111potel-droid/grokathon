@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   NOISE_LABEL,
+  adaptC2Theme,
   communityRisk,
   gates,
   layoutMeetsFix,
@@ -11,20 +12,22 @@ import {
   themeWeights,
 } from './community';
 import type {
-  C2File,
   HomesFact,
   Layout,
   ObjectionCard,
   ObjectionsFile,
+  PlanningQuote,
   S2File,
 } from '../types';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const sample = (name: string) =>
   JSON.parse(readFileSync(join(root, 'data/sample', name), 'utf8'));
+const out = (name: string) =>
+  JSON.parse(readFileSync(join(root, 'data/out', name), 'utf8'));
 
 const c1 = sample('C1.json') as HomesFact;
-const c2 = sample('C2.json') as C2File;
+const c2 = out('C2.json') as PlanningQuote[];
 const s2 = sample('S2.json') as S2File;
 const objections = sample('objections.json') as ObjectionsFile;
 const round0 = sample('layout_round0.json') as Layout;
@@ -32,17 +35,44 @@ const round1 = sample('layout_round1.json') as Layout;
 const round2 = sample('layout_round2.json') as Layout;
 
 describe('themeWeights', () => {
-  it('weights themes by share of quotes and doubles refusals', () => {
-    const { weights, counts, usedRowIds } = themeWeights(c2);
-    // Quotes: noise refus(2) + noise cond(1) + visual refus(2) + traffic(1) + flood(1) = 7
-    expect(counts.noise).toBe(3);
-    expect(counts.visual).toBe(2);
-    expect(counts.traffic).toBe(1);
-    expect(counts.flood).toBe(1);
-    expect(weights.noise).toBeCloseTo(3 / 7, 5);
-    expect(weights.visual).toBeCloseTo(2 / 7, 5);
-    expect(usedRowIds).toContain('C2');
-    expect(usedRowIds).toContain('C2-01');
+  it('counts only found rows with raised_by, retags, and lists every row id', () => {
+    const { weights, counts, usedRowIds, rowIdsByTheme } = themeWeights(c2);
+
+    // No decision / application / not-found rows (empty raised_by).
+    expect(usedRowIds).not.toContain('C2-01');
+    expect(usedRowIds).not.toContain('C2-02');
+    expect(usedRowIds).not.toContain('C2-15');
+    expect(usedRowIds).toContain('C2-04');
+    expect(usedRowIds).toContain('C2-20');
+
+    // Adapter retags — themes stay "other" in the data file.
+    expect(adaptC2Theme({ id: 'C2-07', theme: 'other' })).toBe('heat');
+    expect(adaptC2Theme({ id: 'C2-08', theme: 'other' })).toBe(
+      'scale of development',
+    );
+    expect(adaptC2Theme({ id: 'C2-11', theme: 'other' })).toBe('environment');
+    expect(adaptC2Theme({ id: 'C2-12', theme: 'other' })).toBe(
+      'airport safeguarding',
+    );
+    expect(rowIdsByTheme.heat).toEqual(['C2-07']);
+    expect(rowIdsByTheme['scale of development']).toEqual(['C2-08']);
+    expect(rowIdsByTheme.environment).toEqual(['C2-11']);
+    expect(rowIdsByTheme['airport safeguarding']).toEqual(['C2-12']);
+
+    // No theme called "other".
+    expect(weights).not.toHaveProperty('other');
+    expect(Object.keys(rowIdsByTheme)).not.toContain('other');
+
+    // Every counted row id appears under its theme.
+    const listed = Object.values(rowIdsByTheme).flat().sort();
+    expect(listed).toEqual([...usedRowIds].sort());
+
+    // Refusal (C2-20) counts double within green belt.
+    expect(rowIdsByTheme['green belt']).toEqual(
+      expect.arrayContaining(['C2-04', 'C2-20']),
+    );
+    expect(counts['green belt']).toBe(3); // 1 + 2
+    expect(weights['green belt']).toBeCloseTo(3 / Object.values(counts).reduce((a, b) => a + b, 0), 5);
   });
 });
 

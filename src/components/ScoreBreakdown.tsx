@@ -3,6 +3,8 @@ import type { GateResult } from '../lib/community';
 interface Props {
   score: number;
   weights: Record<string, number>;
+  /** Row ids counted under each theme (shown beside the weight). */
+  rowIdsByTheme?: Record<string, string[]>;
   gates: GateResult[];
   activeCardIds: string[];
   resolvedCardIds: string[];
@@ -12,6 +14,7 @@ interface Props {
 export function ScoreBreakdown({
   score,
   weights,
+  rowIdsByTheme = {},
   gates,
   activeCardIds,
   resolvedCardIds,
@@ -35,11 +38,12 @@ export function ScoreBreakdown({
 
       <div className="score-tables">
         <table className="score-table">
-          <caption>Theme weights (C2 · refusals ×2)</caption>
+          <caption>Theme weights (C2 · found + raised_by · refusals ×2)</caption>
           <thead>
             <tr>
               <th scope="col">Theme</th>
               <th scope="col">Weight</th>
+              <th scope="col">Row ids</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +51,9 @@ export function ScoreBreakdown({
               <tr key={theme}>
                 <td>{theme}</td>
                 <td>{(w * 100).toFixed(1)}%</td>
+                <td className="score-row-ids">
+                  {(rowIdsByTheme[theme] ?? []).join(', ') || '—'}
+                </td>
               </tr>
             ))}
           </tbody>
