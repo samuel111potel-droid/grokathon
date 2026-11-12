@@ -185,26 +185,31 @@ export function loadC2Rows(): FactRow[] {
 export function loadObjections(): ObjectionsFile {
   const liveCards = loadC2Rows()
     .filter((r) => inIdRange(r.id, 'C2', 4, 14))
-    .map(
-      (r): ObjectionCard => ({
+    .map((r): ObjectionCard => {
+      const ext = r as FactRow & {
+        theme?: string;
+        who?: string;
+        who_raised?: string;
+      };
+      const raisedMatch = /Raised by:\s*([^.]+)\./i.exec(r.claim);
+      const who =
+        ext.who_raised ??
+        ext.who ??
+        raisedMatch?.[1]?.trim() ??
+        r.source_org;
+      return {
         id: r.id,
-        theme: (r as FactRow & { theme?: string }).theme ?? r.claim,
-        who_affected:
-          (r as FactRow & { who?: string; who_raised?: string }).who_raised ??
-          (r as FactRow & { who?: string }).who ??
-          r.source_org,
+        theme: ext.theme ?? r.claim,
+        who_affected: who,
         fix: '',
         precedent_id: r.id,
         offer_id: r.id,
         row_ids: [r.id],
         severity: 3,
         quote: r.quote,
-        who_raised:
-          (r as FactRow & { who?: string; who_raised?: string }).who_raised ??
-          (r as FactRow & { who?: string }).who ??
-          r.source_org,
-      }),
-    );
+        who_raised: who,
+      };
+    });
 
   if (hasLiveFile('C2')) {
     return {
