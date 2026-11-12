@@ -1,0 +1,48 @@
+{
+  "id": "OBJ",
+  "claim": "Community objection themes for the Ratcliffe-on-Soar data centre layout",
+  "value": 4,
+  "unit": "cards",
+  "lat": 52.865,
+  "lon": -1.255,
+  "source_org": "Hackathon assumption",
+  "url": "https://www.nottinghamshire.gov.uk/",
+  "quote": "Four assumed objection themes used to drive re-planning: noise, visual, buffer, and capacity.",
+  "retrieved": "2026-11-12",
+  "status": "assumption",
+  "check": "pass",
+  "cards": [
+    {
+      "id": "OBJ1",
+      "theme": "noise",
+      "who_affected": "Homes south-east of the site (C1)",
+      "fix": "move generators away from homes",
+      "row_ids": ["C1", "C2-01", "S2"],
+      "severity": 5
+    },
+    {
+      "id": "OBJ2",
+      "theme": "visual",
+      "who_affected": "Nearby residents with sightlines to the SE edge",
+      "fix": "Shift halls inward and keep battery/substation as a screen where useful",
+      "row_ids": ["C1", "SITE", "C2-03"],
+      "severity": 3
+    },
+    {
+      "id": "OBJ3",
+      "theme": "noise",
+      "who_affected": "Residents within a few hundred metres of generators",
+      "fix": "Increase minimum generator–home distance across re-plans",
+      "row_ids": ["C2-02", "S2"],
+      "severity": 4
+    },
+    {
+      "id": "OBJ4",
+      "theme": "other",
+      "who_affected": "Project sponsor and grid connection stakeholders",
+      "fix": "Keep halls and substation on site so IT load is preserved",
+      "row_ids": ["P1", "S1"],
+      "severity": 2
+    }
+  ]
+}

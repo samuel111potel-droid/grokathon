@@ -1,0 +1,34 @@
+{
+  "id": "S2",
+  "claim": "Stand-off, flood-zone hard gate, and generator source level for the simple noise model",
+  "value": 500,
+  "unit": "m",
+  "lat": 52.865,
+  "lon": -1.255,
+  "source_org": "Hackathon assumption",
+  "url": "https://www.gov.uk/guidance/noise-policy-statement-for-england",
+  "quote": "Assumed 500 m generator-to-home stand-off for the hard gate; noise uses ~80 dB at 10 m with 6 dB per doubling.",
+  "retrieved": "2026-11-12",
+  "status": "assumption",
+  "check": "pass",
+  "flood_zones": [
+    {
+      "id": "S2-FZ2",
+      "label": "Assumed Flood Zone 2 strip on the south-east site edge",
+      "ring": [
+        [-1.2536, 52.8624],
+        [-1.2506, 52.8624],
+        [-1.2506, 52.8642],
+        [-1.2536, 52.8642],
+        [-1.2536, 52.8624]
+      ]
+    }
+  ],
+  "source_db": {
+    "generator": {
+      "row_id": "S2-NOISE",
+      "level_db": 80,
+      "ref_distance_m": 10
+    }
+  }
+}

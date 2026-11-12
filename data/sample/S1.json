@@ -1,0 +1,14 @@
+{
+  "id": "S1",
+  "claim": "Objection risk score derived from card severity and generator proximity to homes",
+  "value": null,
+  "unit": "score",
+  "lat": 52.865,
+  "lon": -1.255,
+  "source_org": "Hackathon assumption",
+  "url": "https://www.nottinghamshire.gov.uk/",
+  "quote": "Risk is computed in-app from objection cards and generator\u2013home distances; this row documents the metric.",
+  "retrieved": "2026-11-12",
+  "status": "assumption",
+  "check": "pass"
+}
