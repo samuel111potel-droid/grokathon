@@ -1,0 +1,81 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "contam-ash",
+    "kind": "ash",
+    "label": "Sample ash / made-ground area",
+    "citation_ids": [
+     "S1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2542718,
+       52.8662009
+      ],
+      [
+       -1.2504029,
+       52.8662009
+      ],
+      [
+       -1.2504029,
+       52.8676484
+      ],
+      [
+       -1.2542718,
+       52.8676484
+      ],
+      [
+       -1.2542718,
+       52.8662009
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "contam-coal",
+    "kind": "coal_stock",
+    "label": "Sample former coal stock area",
+    "citation_ids": [
+     "S1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2588847,
+       52.8628085
+      ],
+      [
+       -1.255611,
+       52.8628085
+      ],
+      [
+       -1.255611,
+       52.8636227
+      ],
+      [
+       -1.2588847,
+       52.8636227
+      ],
+      [
+       -1.2588847,
+       52.8628085
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

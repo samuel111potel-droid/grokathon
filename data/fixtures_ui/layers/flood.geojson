@@ -1,0 +1,99 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "flood-z2",
+    "kind": "flood",
+    "label": "Sample flood zone (lower probability band)",
+    "zone": 2,
+    "citation_ids": [
+     "S1-01"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2698961,
+       52.8580591
+      ],
+      [
+       -1.2587359,
+       52.858421
+      ],
+      [
+       -1.2576943,
+       52.8620396
+      ],
+      [
+       -1.2600751,
+       52.8647535
+      ],
+      [
+       -1.2620095,
+       52.8676484
+      ],
+      [
+       -1.2698961,
+       52.8682816
+      ],
+      [
+       -1.2698961,
+       52.8580591
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "flood-z3",
+    "kind": "flood",
+    "label": "Sample flood zone (higher probability band)",
+    "zone": 3,
+    "citation_ids": [
+     "S1-01"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2684081,
+       52.8589638
+      ],
+      [
+       -1.2606703,
+       52.8594161
+      ],
+      [
+       -1.2594799,
+       52.8618586
+      ],
+      [
+       -1.2612655,
+       52.8643917
+      ],
+      [
+       -1.2633488,
+       52.8666533
+      ],
+      [
+       -1.2684081,
+       52.8671056
+      ],
+      [
+       -1.2684081,
+       52.8589638
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

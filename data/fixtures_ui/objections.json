@@ -1,0 +1,86 @@
+[
+ {
+  "id": "OBJ-01",
+  "theme": "noise",
+  "title": "Night-time standby generator testing near dwellings (sample card)",
+  "affected_summary": "16 sample dwellings in the middle ring (nearest at 87 m)",
+  "severity": 5,
+  "precedent_id": "C2-01",
+  "receptor_ids": [
+   "C1-02",
+   "C1-04"
+  ],
+  "fix": "move generators away from homes",
+  "secondary_fix": "add acoustic screen",
+  "resolved_in_round": 1,
+  "citation_ids": [
+   "C1-02",
+   "C2-01",
+   "S2-07"
+  ]
+ },
+ {
+  "id": "OBJ-02",
+  "theme": "traffic",
+  "title": "Construction and HGV access past the residential edge (sample card)",
+  "affected_summary": "4 sample dwellings in the inner ring",
+  "severity": 3,
+  "precedent_id": "C2-03",
+  "receptor_ids": [
+   "C1-01"
+  ],
+  "fix": "move site access",
+  "resolved_in_round": 1,
+  "citation_ids": [
+   "C1-01",
+   "C2-03"
+  ]
+ },
+ {
+  "id": "OBJ-03",
+  "theme": "visual",
+  "title": "Hall height and massing seen from the residential edge (sample card)",
+  "affected_summary": "24 sample dwellings in the outer ring",
+  "severity": 3,
+  "precedent_id": "C2-02",
+  "receptor_ids": [
+   "C1-03"
+  ],
+  "fix": "lower hall height",
+  "resolved_in_round": 2,
+  "citation_ids": [
+   "C1-03",
+   "C2-02",
+   "S1-04"
+  ]
+ },
+ {
+  "id": "OBJ-04",
+  "theme": "ecology",
+  "title": "Loss of screening and habitat on the eastern edge (sample card)",
+  "affected_summary": "Sample ecological designation near the site",
+  "severity": 1,
+  "precedent_id": "C2-02",
+  "receptor_ids": [],
+  "fix": "add tree belt",
+  "resolved_in_round": 2,
+  "citation_ids": [
+   "S1-03"
+  ]
+ },
+ {
+  "id": "OBJ-05",
+  "theme": "power_water",
+  "title": "Substation compound sited toward dwellings (sample card)",
+  "affected_summary": "Sample flood-zone overlap and grid route",
+  "severity": 3,
+  "precedent_id": "C2-02",
+  "receptor_ids": [],
+  "fix": "move substation",
+  "resolved_in_round": 2,
+  "citation_ids": [
+   "S1-01",
+   "P2-01"
+  ]
+ }
+]

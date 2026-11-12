@@ -1,0 +1,37 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "fibre-1",
+    "kind": "fibre",
+    "label": "Sample fibre corridor",
+    "citation_ids": [
+     "S1-05"
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -1.2788243,
+      52.8602303
+     ],
+     [
+      -1.262456,
+      52.8614968
+     ],
+     [
+      -1.2487661,
+      52.8618586
+     ],
+     [
+      -1.2326953,
+      52.8639393
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+[
+ {
+  "id": "C1-01",
+  "claim": "Sample dwellings within the inner search ring of the placeholder boundary",
+  "value": 4,
+  "unit": "homes",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Counted by the fixture script from data/fixtures_ui/receptors.geojson (sample points, 150 m ring).",
+  "theme": "noise"
+ },
+ {
+  "id": "C1-02",
+  "claim": "Sample dwellings within the middle search ring of the placeholder boundary",
+  "value": 16,
+  "unit": "homes",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Counted by the fixture script from data/fixtures_ui/receptors.geojson (sample points, 300 m ring).",
+  "theme": "noise"
+ },
+ {
+  "id": "C1-03",
+  "claim": "Sample dwellings within the outer search ring of the placeholder boundary",
+  "value": 24,
+  "unit": "homes",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Counted by the fixture script from data/fixtures_ui/receptors.geojson (sample points, 1 km ring).",
+  "theme": "noise"
+ },
+ {
+  "id": "C1-04",
+  "claim": "Distance from placeholder boundary to nearest sample dwelling",
+  "value": 87,
+  "unit": "m",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Measured by the fixture script between sample geometries.",
+  "lat": 52.8642107,
+  "lon": -1.2480221,
+  "theme": "noise"
+ },
+ {
+  "id": "C1-05",
+  "claim": "Sample school location (placeholder pin)",
+  "value": null,
+  "unit": "",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder geometry drawn around the reference pin for UI testing; not a surveyed or published location.",
+  "lat": 52.8711765,
+  "lon": -1.2416235,
+  "theme": "other"
+ }
+]

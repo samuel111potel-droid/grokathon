@@ -1,0 +1,13 @@
+{
+ "benchmarks": [
+  {
+   "id": "M1-01",
+   "label": "Industrial / logistics downside floor (sample multiple of farmland value)",
+   "value": 3,
+   "unit": "x",
+   "status": "assumption",
+   "basis": "Sample placeholder; no MSCI aggregate has been wired in.",
+   "receipt_id": "MSCI-R1"
+  }
+ ]
+}

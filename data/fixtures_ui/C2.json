@@ -1,0 +1,50 @@
+[
+ {
+  "id": "C2-01",
+  "claim": "Sample precedent A: large shed scheme (placeholder record, decision not sourced)",
+  "value": "refused",
+  "unit": "",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Placeholder precedent pin; no planning portal record has been retrieved yet.",
+  "lat": 52.8779614,
+  "lon": -1.2267432,
+  "theme": "noise",
+  "category": "planning_doc"
+ },
+ {
+  "id": "C2-02",
+  "claim": "Sample precedent B: battery storage scheme (placeholder record, decision not sourced)",
+  "value": "approved",
+  "unit": "",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Placeholder precedent pin; no planning portal record has been retrieved yet.",
+  "lat": 52.8716288,
+  "lon": -1.2892405,
+  "theme": "visual",
+  "category": "planning_doc"
+ },
+ {
+  "id": "C2-03",
+  "claim": "Sample precedent C: logistics scheme (placeholder record, decision not sourced)",
+  "value": "refused",
+  "unit": "",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Placeholder precedent pin; no planning portal record has been retrieved yet.",
+  "lat": 52.8462987,
+  "lon": -1.2326953,
+  "theme": "traffic",
+  "category": "planning_doc"
+ }
+]

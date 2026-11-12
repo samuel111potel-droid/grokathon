@@ -1,0 +1,522 @@
+{
+ "round": 2,
+ "label": "Round 2 \u00b7 Consent-ready scheme (sample)",
+ "summary": "Sample layout: halls stepped down, tree belt on the residential edge, substation moved west; fewer MW for a higher risk-adjusted value.",
+ "applied_fixes": [
+  "move generators away from homes",
+  "add acoustic screen",
+  "move site access",
+  "lower hall height",
+  "add tree belt",
+  "move substation"
+ ],
+ "metrics": {
+  "it_load_mw": 56,
+  "gross_site_acres": 114.9,
+  "hall_height_m": 13.5,
+  "nearest_home_to_gen_m": 539,
+  "predicted_receptor_dba": 30.4,
+  "acoustic_contour_m": 141,
+  "bs4142_compliant": true,
+  "objection_risk_score": 21,
+  "approval_probability_pct": 78
+ },
+ "underwrite": {
+  "farmland_baseline_gbp_m": 1.15,
+  "industrial_downside_gbp_m": 3.45,
+  "gross_powered_land_gbp_m": 56.0,
+  "grid_connection_capex_gbp_m": 0.69,
+  "mitigation_and_s106_capex_gbp_m": 3.0,
+  "risk_adjusted_land_value_gbp_m": 40.8,
+  "citation_ids": [
+   "S2-04",
+   "S2-05",
+   "S2-06",
+   "P2-02",
+   "MSCI-R1"
+  ]
+ },
+ "metric_sources": {
+  "it_load_mw": {
+   "method": "SAMPLE fixture: placeholder IT load from the team plan.",
+   "citation_ids": [
+    "S2-10"
+   ]
+  },
+  "gross_site_acres": {
+   "method": "SAMPLE fixture: area of the placeholder boundary polygon.",
+   "citation_ids": [
+    "S1-06"
+   ]
+  },
+  "hall_height_m": {
+   "method": "SAMPLE fixture: placeholder hall ridge height from the team plan.",
+   "citation_ids": [
+    "S1-04"
+   ]
+  },
+  "nearest_home_to_gen_m": {
+   "method": "SAMPLE fixture: straight-line distance from generator compound centre to nearest sample dwelling, computed from fixture geometry.",
+   "citation_ids": [
+    "C1-04"
+   ]
+  },
+  "predicted_receptor_dba": {
+   "method": "SAMPLE fixture: reference sound level minus 20\u00b7log10(distance / reference distance), minus screen loss where a screen is present. Placeholder for src/engine/acoustics.ts.",
+   "citation_ids": [
+    "S2-07",
+    "S2-09",
+    "C1-04"
+   ]
+  },
+  "acoustic_contour_m": {
+   "method": "SAMPLE fixture: distance at which the placeholder level falls to the night-time target.",
+   "citation_ids": [
+    "S2-07",
+    "S2-08",
+    "S2-09"
+   ]
+  },
+  "bs4142_compliant": {
+   "method": "SAMPLE fixture: predicted level compared with the night-time target row.",
+   "citation_ids": [
+    "S2-08"
+   ]
+  },
+  "objection_risk_score": {
+   "method": "SAMPLE fixture: placeholder score from the team plan storyboard; real score comes from the engine.",
+   "citation_ids": [
+    "C1-02",
+    "C2-01"
+   ]
+  },
+  "approval_probability_pct": {
+   "method": "SAMPLE fixture: placeholder probability; real figure comes from the engine.",
+   "citation_ids": [
+    "C2-01"
+   ]
+  },
+  "farmland_baseline_gbp_m": {
+   "method": "SAMPLE fixture: site acres \u00d7 farmland value per acre.",
+   "citation_ids": [
+    "S1-06",
+    "S2-04"
+   ]
+  },
+  "industrial_downside_gbp_m": {
+   "method": "SAMPLE fixture: farmland baseline \u00d7 industrial multiple; MSCI aggregate not wired in.",
+   "citation_ids": [
+    "S2-05",
+    "MSCI-R1"
+   ]
+  },
+  "gross_powered_land_gbp_m": {
+   "method": "SAMPLE fixture: IT load \u00d7 powered-land value per MW.",
+   "citation_ids": [
+    "S2-06"
+   ]
+  },
+  "grid_connection_capex_gbp_m": {
+   "method": "SAMPLE fixture: route km \u00d7 unit cost per km.",
+   "citation_ids": [
+    "P2-01",
+    "P2-02"
+   ]
+  },
+  "mitigation_and_s106_capex_gbp_m": {
+   "method": "SAMPLE fixture: placeholder allowance per round.",
+   "citation_ids": []
+  },
+  "risk_adjusted_land_value_gbp_m": {
+   "method": "SAMPLE fixture: (gross powered land \u2212 grid capex \u2212 mitigation) \u00d7 approval probability.",
+   "citation_ids": [
+    "S2-06",
+    "P2-01",
+    "P2-02"
+   ]
+  }
+ },
+ "features": {
+  "type": "FeatureCollection",
+  "features": [
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "hall-1",
+     "kind": "hall",
+     "label": "Data hall 1",
+     "height_m": 13.5,
+     "color": "#38bdf8"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2594055,
+        52.8647535
+       ],
+       [
+        -1.2580663,
+        52.8647535
+       ],
+       [
+        -1.2580663,
+        52.8665628
+       ],
+       [
+        -1.2594055,
+        52.8665628
+       ],
+       [
+        -1.2594055,
+        52.8647535
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "hall-2",
+     "kind": "hall",
+     "label": "Data hall 2",
+     "height_m": 13.5,
+     "color": "#38bdf8"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2576199,
+        52.8647535
+       ],
+       [
+        -1.2562806,
+        52.8647535
+       ],
+       [
+        -1.2562806,
+        52.8665628
+       ],
+       [
+        -1.2576199,
+        52.8665628
+       ],
+       [
+        -1.2576199,
+        52.8647535
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "hall-3",
+     "kind": "hall",
+     "label": "Data hall 3",
+     "height_m": 13.5,
+     "color": "#38bdf8"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2558342,
+        52.8647535
+       ],
+       [
+        -1.254495,
+        52.8647535
+       ],
+       [
+        -1.254495,
+        52.8665628
+       ],
+       [
+        -1.2558342,
+        52.8665628
+       ],
+       [
+        -1.2558342,
+        52.8647535
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "hall-4",
+     "kind": "hall",
+     "label": "Data hall 4",
+     "height_m": 13.5,
+     "color": "#38bdf8"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2540486,
+        52.8647535
+       ],
+       [
+        -1.253007,
+        52.8647535
+       ],
+       [
+        -1.253007,
+        52.8665628
+       ],
+       [
+        -1.2540486,
+        52.8665628
+       ],
+       [
+        -1.2540486,
+        52.8647535
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "gen-bank-1",
+     "kind": "generators",
+     "label": "Standby generator compound",
+     "height_m": 8.5,
+     "color": "#ef4444"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2605215,
+        52.864256
+       ],
+       [
+        -1.2599263,
+        52.864256
+       ],
+       [
+        -1.2599263,
+        52.8652511
+       ],
+       [
+        -1.2605215,
+        52.8652511
+       ],
+       [
+        -1.2605215,
+        52.864256
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "substation-1",
+     "kind": "substation",
+     "label": "On-site substation",
+     "height_m": 10,
+     "color": "#818cf8"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2604471,
+        52.8671056
+       ],
+       [
+        -1.2591079,
+        52.8671056
+       ],
+       [
+        -1.2591079,
+        52.8676484
+       ],
+       [
+        -1.2604471,
+        52.8676484
+       ],
+       [
+        -1.2604471,
+        52.8671056
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "bess-1",
+     "kind": "bess",
+     "label": "Battery storage compound",
+     "height_m": 4,
+     "color": "#818cf8"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2603727,
+        52.8631251
+       ],
+       [
+        -1.2594799,
+        52.8631251
+       ],
+       [
+        -1.2594799,
+        52.8638489
+       ],
+       [
+        -1.2603727,
+        52.8638489
+       ],
+       [
+        -1.2603727,
+        52.8631251
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "access-1",
+     "kind": "access",
+     "label": "Site access",
+     "height_m": 1.5,
+     "color": "#f59e0b"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2611911,
+        52.8655677
+       ],
+       [
+        -1.2607447,
+        52.8655677
+       ],
+       [
+        -1.2607447,
+        52.8661105
+       ],
+       [
+        -1.2611911,
+        52.8661105
+       ],
+       [
+        -1.2611911,
+        52.8655677
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "barrier-1",
+     "kind": "barrier",
+     "label": "Acoustic screen",
+     "height_m": 6,
+     "color": "#10b981"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2597924,
+        52.8641655
+       ],
+       [
+        -1.2597031,
+        52.8641655
+       ],
+       [
+        -1.2597031,
+        52.8653415
+       ],
+       [
+        -1.2597924,
+        52.8653415
+       ],
+       [
+        -1.2597924,
+        52.8641655
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "id": "tree-belt-1",
+     "kind": "tree_belt",
+     "label": "Native tree belt",
+     "height_m": 9,
+     "color": "#10b981"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -1.2501053,
+        52.862311
+       ],
+       [
+        -1.2490637,
+        52.8649344
+       ],
+       [
+        -1.2496589,
+        52.8679198
+       ],
+       [
+        -1.2500309,
+        52.8679198
+       ],
+       [
+        -1.2494357,
+        52.8649344
+       ],
+       [
+        -1.2504773,
+        52.862311
+       ],
+       [
+        -1.2501053,
+        52.862311
+       ]
+      ]
+     ]
+    }
+   }
+  ]
+ }
+}

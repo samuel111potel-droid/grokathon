@@ -1,0 +1,10 @@
+[
+ {
+  "id": "MSCI-R1",
+  "tool": "SAMPLE: no MSCI query has been run for this receipt",
+  "query_summary": "Placeholder receipt so the Source Proof Drawer can be exercised; replaced by the Lane 3 receipt file.",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "sha256": "8c538b23f8e4cae516af598315c8a869bc91389e4d5a779ec78e7e7affdb123d",
+  "display_note": "SAMPLE receipt: the hash is of data/fixtures_ui/M1_summary.json, not of an MSCI response."
+ }
+]

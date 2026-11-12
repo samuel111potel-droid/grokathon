@@ -1,0 +1,41 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "route-1",
+    "kind": "underground",
+    "label": "Sample HV route to sample substation A",
+    "citation_ids": [
+     "P2-01"
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -1.254123,
+      52.8674675
+     ],
+     [
+      -1.2565038,
+      52.8690958
+     ],
+     [
+      -1.265432,
+      52.8703623
+     ],
+     [
+      -1.2728722,
+      52.8727144
+     ],
+     [
+      -1.2773363,
+      52.8734381
+     ]
+    ]
+   }
+  }
+ ]
+}

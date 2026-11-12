@@ -1,0 +1,179 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "area-1",
+    "kind": "ward",
+    "label": "Sample area A",
+    "citation_ids": [
+     "C3-01"
+    ],
+    "metrics": {
+     "median_age": 44,
+     "employment_rate": 61,
+     "elec_engineering_workers": 120,
+     "deprivation_decile": 8
+    },
+    "metric_citation_ids": {
+     "median_age": [
+      "C3-01"
+     ],
+     "employment_rate": [
+      "C3-02"
+     ],
+     "elec_engineering_workers": [
+      "C3-03"
+     ],
+     "deprivation_decile": [
+      "C3-04"
+     ]
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2788243,
+       52.8544405
+      ],
+      [
+       -1.2401355,
+       52.8544405
+      ],
+      [
+       -1.2401355,
+       52.8770567
+      ],
+      [
+       -1.2788243,
+       52.8770567
+      ],
+      [
+       -1.2788243,
+       52.8544405
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "area-2",
+    "kind": "ward",
+    "label": "Sample area B",
+    "citation_ids": [
+     "C3-01"
+    ],
+    "metrics": {
+     "median_age": 39,
+     "employment_rate": 66,
+     "elec_engineering_workers": 210,
+     "deprivation_decile": 6
+    },
+    "metric_citation_ids": {
+     "median_age": [
+      "C3-01"
+     ],
+     "employment_rate": [
+      "C3-02"
+     ],
+     "elec_engineering_workers": [
+      "C3-03"
+     ],
+     "deprivation_decile": [
+      "C3-04"
+     ]
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2401355,
+       52.8544405
+      ],
+      [
+       -1.2073988,
+       52.8544405
+      ],
+      [
+       -1.2073988,
+       52.8770567
+      ],
+      [
+       -1.2401355,
+       52.8770567
+      ],
+      [
+       -1.2401355,
+       52.8544405
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "area-3",
+    "kind": "ward",
+    "label": "Sample area C",
+    "citation_ids": [
+     "C3-01"
+    ],
+    "metrics": {
+     "median_age": 47,
+     "employment_rate": 57,
+     "elec_engineering_workers": 85,
+     "deprivation_decile": 7
+    },
+    "metric_citation_ids": {
+     "median_age": [
+      "C3-01"
+     ],
+     "employment_rate": [
+      "C3-02"
+     ],
+     "elec_engineering_workers": [
+      "C3-03"
+     ],
+     "deprivation_decile": [
+      "C3-04"
+     ]
+    }
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2788243,
+       52.8363475
+      ],
+      [
+       -1.2073988,
+       52.8363475
+      ],
+      [
+       -1.2073988,
+       52.8544405
+      ],
+      [
+       -1.2788243,
+       52.8544405
+      ],
+      [
+       -1.2788243,
+       52.8363475
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

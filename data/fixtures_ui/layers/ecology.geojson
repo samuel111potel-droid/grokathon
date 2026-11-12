@@ -1,0 +1,44 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "eco-1",
+    "kind": "ecology",
+    "label": "Sample designated site",
+    "designation": "Sample designation",
+    "citation_ids": [
+     "S1-03"
+    ]
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2542718,
+       52.8754736
+      ],
+      [
+       -1.2468316,
+       52.8754736
+      ],
+      [
+       -1.2468316,
+       52.8786399
+      ],
+      [
+       -1.2542718,
+       52.8786399
+      ],
+      [
+       -1.2542718,
+       52.8754736
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

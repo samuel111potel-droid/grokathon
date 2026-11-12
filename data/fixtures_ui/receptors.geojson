@@ -1,0 +1,437 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-01",
+    "kind": "dwelling",
+    "label": "Sample dwelling 01",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2480221,
+     52.8642107
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-02",
+    "kind": "dwelling",
+    "label": "Sample dwelling 02",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2475012,
+     52.8647535
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-03",
+    "kind": "dwelling",
+    "label": "Sample dwelling 03",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.247278,
+     52.8639393
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-04",
+    "kind": "dwelling",
+    "label": "Sample dwelling 04",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.246906,
+     52.8644369
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-05",
+    "kind": "dwelling",
+    "label": "Sample dwelling 05",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2466828,
+     52.863487
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-06",
+    "kind": "dwelling",
+    "label": "Sample dwelling 06",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2463108,
+     52.8650249
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-07",
+    "kind": "dwelling",
+    "label": "Sample dwelling 07",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2460876,
+     52.8640298
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-08",
+    "kind": "dwelling",
+    "label": "Sample dwelling 08",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2457156,
+     52.8631251
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-09",
+    "kind": "dwelling",
+    "label": "Sample dwelling 09",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2454924,
+     52.864663
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-10",
+    "kind": "dwelling",
+    "label": "Sample dwelling 10",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2451948,
+     52.8654772
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-11",
+    "kind": "dwelling",
+    "label": "Sample dwelling 11",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2447484,
+     52.8636679
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-12",
+    "kind": "dwelling",
+    "label": "Sample dwelling 12",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2445996,
+     52.8643012
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-13",
+    "kind": "dwelling",
+    "label": "Sample dwelling 13",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2441532,
+     52.8658391
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-14",
+    "kind": "dwelling",
+    "label": "Sample dwelling 14",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.24393,
+     52.8630347
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-15",
+    "kind": "dwelling",
+    "label": "Sample dwelling 15",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.243558,
+     52.8649344
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-16",
+    "kind": "dwelling",
+    "label": "Sample dwelling 16",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2431115,
+     52.8639393
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-17",
+    "kind": "dwelling",
+    "label": "Sample dwelling 17",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2428139,
+     52.8661105
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-18",
+    "kind": "dwelling",
+    "label": "Sample dwelling 18",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2423675,
+     52.8644821
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-19",
+    "kind": "dwelling",
+    "label": "Sample dwelling 19",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.247278,
+     52.8669247
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-20",
+    "kind": "dwelling",
+    "label": "Sample dwelling 20",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2466828,
+     52.867377
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-21",
+    "kind": "dwelling",
+    "label": "Sample dwelling 21",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2459388,
+     52.8676484
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-22",
+    "kind": "dwelling",
+    "label": "Sample dwelling 22",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2572478,
+     52.8602303
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-23",
+    "kind": "dwelling",
+    "label": "Sample dwelling 23",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.256355,
+     52.8597779
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "R-24",
+    "kind": "dwelling",
+    "label": "Sample dwelling 24",
+    "citation_ids": [
+     "C1-02"
+    ]
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2553134,
+     52.8600493
+    ]
+   }
+  }
+ ]
+}

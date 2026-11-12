@@ -1,0 +1,57 @@
+[
+ {
+  "id": "P2-01",
+  "claim": "Sample HV route length from on-site substation to sample substation A",
+  "value": 1.73,
+  "unit": "km",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Length of the placeholder route line in data/fixtures_ui/power_route.geojson, measured by the fixture script.",
+  "theme": "power_water"
+ },
+ {
+  "id": "P2-02",
+  "claim": "Placeholder connection unit cost per route km",
+  "value": 0.4,
+  "unit": "\u00a3m/km",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Team placeholder unit cost named in docs/EXECUTION_PLAN.md Lane 1; no published DNO or regulator table retrieved yet.",
+  "verdict": "no_source",
+  "theme": "power_water"
+ },
+ {
+  "id": "P2-03",
+  "claim": "Sample crossing point on the placeholder route",
+  "value": 1,
+  "unit": "crossing",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder geometry drawn around the reference pin for UI testing; not a surveyed or published location.",
+  "lat": 52.8703623,
+  "lon": -1.265432,
+  "theme": "power_water"
+ },
+ {
+  "id": "P2-04",
+  "claim": "Published unit cost for underground cable at target voltage",
+  "value": null,
+  "unit": "",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "not_found",
+  "basis": "Not researched yet; placeholder row so the screen shows the gap.",
+  "theme": "power_water"
+ }
+]

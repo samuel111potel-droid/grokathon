@@ -1,0 +1,104 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "line-1",
+    "kind": "overhead",
+    "label": "Sample transmission circuit (north-east)",
+    "voltage_kv": 400,
+    "citation_ids": [
+     "P1-05"
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -1.254123,
+      52.8674675
+     ],
+     [
+      -1.2475756,
+      52.8716288
+     ],
+     [
+      -1.2341834,
+      52.878866
+     ],
+     [
+      -1.216327,
+      52.8861032
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "line-2",
+    "kind": "overhead",
+    "label": "Sample transmission circuit (south-west)",
+    "voltage_kv": 400,
+    "citation_ids": [
+     "P1-05"
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -1.254123,
+      52.8674675
+     ],
+     [
+      -1.263944,
+      52.8571545
+     ],
+     [
+      -1.2743602,
+      52.845394
+     ],
+     [
+      -1.2966807,
+      52.8417754
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "line-3",
+    "kind": "overhead",
+    "label": "Sample distribution circuit to sample substation B",
+    "voltage_kv": 132,
+    "citation_ids": [
+     "P1-02"
+    ]
+   },
+   "geometry": {
+    "type": "LineString",
+    "coordinates": [
+     [
+      -1.254123,
+      52.8674675
+     ],
+     [
+      -1.2416235,
+      52.8680102
+     ],
+     [
+      -1.2297193,
+      52.8589638
+     ],
+     [
+      -1.219303,
+      52.8490126
+     ]
+    ]
+   }
+  }
+ ]
+}

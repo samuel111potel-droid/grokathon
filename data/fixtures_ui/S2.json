@@ -1,0 +1,123 @@
+[
+ {
+  "id": "S2-01",
+  "claim": "AI training rack density rule of thumb",
+  "value": 130,
+  "unit": "kW/rack",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-02",
+  "claim": "Backup generation as share of critical IT load",
+  "value": 100,
+  "unit": "%",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-03",
+  "claim": "Aggregated thermal input permit trigger",
+  "value": 50,
+  "unit": "MWth",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-04",
+  "claim": "Farmland value rule of thumb",
+  "value": 10000,
+  "unit": "\u00a3/acre",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-05",
+  "claim": "Industrial downside multiple of farmland value",
+  "value": 3,
+  "unit": "x",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-06",
+  "claim": "Powered land value rule of thumb",
+  "value": 1,
+  "unit": "\u00a3m/MW",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-07",
+  "claim": "Generator sound level at reference distance (containerised)",
+  "value": 75,
+  "unit": "dBA",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-08",
+  "claim": "Night-time rating-level target at dwellings",
+  "value": 42,
+  "unit": "dBA",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out.",
+  "kind": "threshold"
+ },
+ {
+  "id": "S2-09",
+  "claim": "Acoustic screen insertion loss",
+  "value": 10,
+  "unit": "dB",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ },
+ {
+  "id": "S2-10",
+  "claim": "IT load density rule of thumb",
+  "value": 3.5,
+  "unit": "MW/acre",
+  "source_org": "SAMPLE",
+  "url": "",
+  "quote": "",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "basis": "Sample placeholder taken from the team plan (docs/EXECUTION_PLAN.md); not sourced or verified. Replaced when the lane output lands in data/out."
+ }
+]

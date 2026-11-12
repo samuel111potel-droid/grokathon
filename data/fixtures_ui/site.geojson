@@ -1,0 +1,54 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "SITE",
+    "kind": "site",
+    "label": "Sample candidate boundary (placeholder)",
+    "citation_ids": [
+     "S1-06"
+    ],
+    "source_org": "SAMPLE",
+    "status": "assumption",
+    "basis": "Sample placeholder geometry drawn around the reference pin for UI testing; not a surveyed or published location."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.2606703,
+       52.8625824
+      ],
+      [
+       -1.2501053,
+       52.862311
+      ],
+      [
+       -1.2490637,
+       52.8649344
+      ],
+      [
+       -1.2496589,
+       52.8679198
+      ],
+      [
+       -1.2594799,
+       52.8681007
+      ],
+      [
+       -1.2612655,
+       52.8654772
+      ],
+      [
+       -1.2606703,
+       52.8625824
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
