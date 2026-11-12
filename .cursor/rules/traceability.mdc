@@ -1,0 +1,19 @@
+---
+description: Traceability rules for every figure the app shows (judging criterion)
+globs: data/**/*,src/**/*
+alwaysApply: true
+---
+
+# Traceability rules
+
+- Every figure and objection on screen shows a Source Chip. No figure appears without one.
+- A sourced figure needs source_org, a live url, a word-for-word quote containing the figure, and a retrieved timestamp.
+- Only rows with Red Team `check: "pass"` reach the UI. Filter out `check: "fail"`.
+- Figures the app calculates (dBA, objection risk, approval %, BS 4142, land values) are labelled "estimate". Their chip shows the method and the citation_ids of their inputs, held in `metric_sources` in each round file.
+- Assumptions show an "assumption" badge with their basis. Never show an assumption as fact.
+- If a figure was not found, mark it `not_found` and show nothing. Never invent or guess a value.
+- Never hard-code figures in JSX or TSX. Read them from data files so the citation travels with the number.
+- MSCI: aggregated ranges plus a receipt (query summary, retrieved, sha256) only. No raw MSCI rows in tracked files.
+- Sample or fixture data on screen is labelled "sample data".
+- Clicking any figure opens the Source Proof Drawer with quote, URL, timestamp and Red Team status.
+- Before recording: `python3 scripts/check_traceability.py --live` must report 0 errors.

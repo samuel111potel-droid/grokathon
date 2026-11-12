@@ -1,0 +1,6 @@
+---
+description: Ground rules every agent in this repo must follow
+alwaysApply: true
+---
+
+Before any task, read and follow "Ground Rules for Every Agent" at the top of AGENTS.md, plus docs/TRACEABILITY_RULES.md and docs/RULES_CHECK.md. If a request conflicts with them, stop and say so instead of working around it. Never invent figures, quotes, URLs or sources. Never add confidential names, private individuals' names, secrets or raw MSCI rows. Run `python3 scripts/check_traceability.py` before pushing data or UI changes and fix every error.

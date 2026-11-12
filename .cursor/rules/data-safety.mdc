@@ -1,0 +1,12 @@
+---
+description: Data lineage, citation schema, and clean-room guardrails for data and UI files
+globs: data/**/*,src/**/*
+alwaysApply: false
+---
+
+# Data Lineage & Clean-Room Guardrails
+
+- **Every displayed metric or objection must link to a `citation_id`** backed by an `EvidenceRow` (`url` + verbatim `quote` + `check: "pass"`) or an `"assumption"` badge. Never render silent hardcoded numbers in JSX.
+- **Exclude failed rows:** Filter out any `EvidenceRow` where `check === "fail"`.
+- **Zero raw MSCI records in git:** Store only query metadata + SHA-256 hashes in `data/receipts/msci_receipts.json` and aggregated benchmark inputs in `data/out/M1_summary.json`. Put any temporary raw scratch files in gitignored `data/cache/`.
+- **Zero private individuals or confidential names:** Never include resident names from planning portals, and never include confidential employer, internal system, client, or live transaction names.
