@@ -1,0 +1,34 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SITE",
+        "claim": "Proposed data-centre site boundary on the Ratcliffe-on-Soar power station land (600 m square assumption).",
+        "value": 600,
+        "unit": "m",
+        "lat": 52.865,
+        "lon": -1.255,
+        "source_org": "Hackathon assumption",
+        "url": "https://www.nottinghamshire.gov.uk/",
+        "quote": "Ratcliffe-on-Soar power station site, Nottinghamshire — approximate centre 52.865, -1.255.",
+        "retrieved": "2026-11-12",
+        "status": "assumption",
+        "check": "pass"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-1.2594640640003014, 52.86230506647503],
+            [-1.2505359359996984, 52.86230506647503],
+            [-1.2505359359996984, 52.86769493352497],
+            [-1.2594640640003014, 52.86769493352497],
+            [-1.2594640640003014, 52.86230506647503]
+          ]
+        ]
+      }
+    }
+  ]
+}
