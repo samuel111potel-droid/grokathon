@@ -35,7 +35,11 @@ function pickNoiseSourceDb(facts: Record<string, FactRow>): {
   db: number;
   fact?: FactRow;
 } {
-  // Prefer an S2 row that mentions dB / generator source level.
+  // Prefer S2-09 (generator dB at stated distance) or any S2 dB row.
+  const preferred = facts['S2-09'];
+  if (preferred && typeof preferred.value === 'number') {
+    return { db: preferred.value as number, fact: preferred };
+  }
   const s2Candidates = Object.values(facts).filter(
     (f) =>
       f.id.startsWith('S2') &&
@@ -45,10 +49,33 @@ function pickNoiseSourceDb(facts: Record<string, FactRow>): {
   if (s2Candidates[0]) {
     return { db: s2Candidates[0].value as number, fact: s2Candidates[0] };
   }
-  if (facts.N1?.value != null && !hasLiveFile('S2')) {
+  // Sample N1 only when no live S2 file exists.
+  if (
+    typeof facts.N1?.value === 'number' &&
+    !hasLiveFile('S2')
+  ) {
     return { db: facts.N1.value, fact: facts.N1 };
   }
-  return { db: 90, fact: s2Candidates[0] ?? facts.S2 };
+  return { db: 90, fact: facts.S2 };
+}
+
+function pickFact(
+  facts: Record<string, FactRow>,
+  ids: string[],
+): FactRow | undefined {
+  for (const id of ids) {
+    if (facts[id]) return facts[id];
+  }
+  return undefined;
+}
+
+function formatValue(fact: FactRow | undefined, fallback: string): string {
+  if (!fact) return fallback;
+  if (fact.value == null) return fallback;
+  const raw = Array.isArray(fact.value)
+    ? fact.value.join('–')
+    : String(fact.value);
+  return `${raw} ${fact.unit}`.trim();
 }
 
 export default function App() {
@@ -155,17 +182,13 @@ export default function App() {
   }
 
   const scoredLayout = displayLayout;
-  const radiusM =
-    Object.values(facts).find(
-      (f) => f.id.startsWith('C2') && f.unit === 'm' && f.value != null,
-    )?.value ?? 400;
+  const radiusM = 300;
   const risk = objectionRisk(objections.cards, scoredLayout, homes, radiusM);
   const nearest = minDistanceM(scoredLayout, homes);
-  const hasIt =
-    scoredLayout.some((b) => b.kind === 'hall') &&
-    scoredLayout.some((b) => b.kind === 'substation');
-  const p1Fact = facts.P1;
-  const itLoad = hasIt ? (p1Fact?.value ?? 0) : 0;
+  const headroomFact = pickFact(facts, ['P1-03', 'P1-04', 'P1-07', 'P1']);
+  const homeFact = pickFact(facts, ['C1-04', 'C1']);
+  const riskFact =
+    pickFact(facts, ['S1-13', 'C2-04', 'S1-01', 'S1']) ?? facts.C2;
 
   const meanNoise =
     homes.length === 0
@@ -179,19 +202,21 @@ export default function App() {
     {
       label: 'Objection risk',
       display: risk.toFixed(1),
-      fact: facts.S1,
+      fact: riskFact,
     },
     {
-      label: 'IT load kept',
-      display: `${itLoad} ${p1Fact?.unit ?? 'MW'}`,
-      fact: p1Fact,
+      label: 'Nearest substation headroom',
+      display: formatValue(headroomFact, '—'),
+      fact: headroomFact,
     },
     {
       label: 'Nearest generator → home',
       display: Number.isFinite(nearest) ? `${Math.round(nearest)} m` : '—',
-      fact: facts.S2,
+      fact: homeFact,
     },
-  ].filter((m) => m.fact);
+  ].filter((m): m is { label: string; display: string; fact: FactRow } =>
+    Boolean(m.fact),
+  );
 
   return (
     <div className="app">

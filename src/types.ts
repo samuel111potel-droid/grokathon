@@ -5,7 +5,8 @@ export type BlockKind = 'hall' | 'generator' | 'battery' | 'substation';
 export interface FactRow {
   id: string;
   claim: string;
-  value: number | null;
+  /** Live rows may carry scalars or short ranges (e.g. [lo, hi]). */
+  value: number | string | number[] | null;
   unit: string;
   lat: number;
   lon: number;

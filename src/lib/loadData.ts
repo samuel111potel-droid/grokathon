@@ -165,7 +165,10 @@ export function loadHomes(): HomesFact {
       retrieved: rows[0]?.retrieved ?? '',
       status: rows[0]?.status ?? 'found',
       check: 'pass',
-      homes: rows.map((r) => ({ ...r, value: r.value ?? 1 })),
+      homes: rows.map((r) => ({
+        ...r,
+        value: typeof r.value === 'number' ? r.value : 1,
+      })),
     };
     return summary;
   }
