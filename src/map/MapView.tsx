@@ -3,13 +3,13 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MapboxOverlay } from '@deck.gl/mapbox';
 import * as turf from '@turf/turf';
-import { featureIndex, fmtNum, resolveCitation, rounds, rowsById, siteRing } from '../components/data';
+import { featureIndex, fmtNum, receptorPts, resolveCitation, rounds, rowsById, siteCenter, siteRing } from '../components/data';
 import { dropRedLine, getState, hooks, openSource, setState, subscribe, useStore, type Callout, type State } from '../components/store';
 import { SourceChip } from '../components/Source';
 import { VIEWS } from '../components/Header';
 import { mapApi } from './api';
-import { buildLayers, ease, fitFromRound, lerp, lerpFit, ringRadiusOf, type FitItem } from './layers';
-import { getDarkStyle, HOME_VIEW, satStyle, UK_VIEW } from './styles';
+import { buildLayers, distM, ease, fitFromRound, lerp, lerpFit, ringRadiusOf, type FitItem } from './layers';
+import { getDarkStyle, HOME_PADDING, HOME_VIEW, satStyle, UK_VIEW } from './styles';
 
 const EMPTY: any = { type: 'FeatureCollection', features: [] };
 const FIT_MS = 1200;
@@ -80,6 +80,11 @@ export function MapView() {
     } as any);
     mapApi.map = map;
     (window as any).__map = map;
+    try {
+      map.setPadding(HOME_PADDING);
+    } catch {
+      /* applied again in flyHome */
+    }
 
     const onPick = (info: any) => {
       const o = info?.object;
@@ -289,7 +294,23 @@ export function MapView() {
     // ----- opening fly-in -----
     const flyHome = () => {
       setState({ phase: 'flying' });
-      return mapApi.flyTo({ ...HOME_VIEW, duration: 4000 }).then(() => setState({ phase: 'landed' }));
+      // Frame the boundary plus nearby homes inside the free map area, so the generators-to-homes story is never under a panel.
+      let cam: any = null;
+      try {
+        map.setPadding(HOME_PADDING);
+        const pts = [...siteRing, ...receptorPts.filter((p) => distM(siteCenter, [p.lon, p.lat]) < 1000).map((p) => [p.lon, p.lat])];
+        if (pts.length > 1) {
+          const xs = pts.map((p) => p[0]);
+          const ys = pts.map((p) => p[1]);
+          cam = map.cameraForBounds([[Math.min(...xs), Math.min(...ys)], [Math.max(...xs), Math.max(...ys)]], { bearing: HOME_VIEW.bearing, padding: 40 });
+        }
+      } catch (err) {
+        console.warn('[map] home camera', err);
+      }
+      const c = cam?.center;
+      const center: [number, number] = Array.isArray(c) ? (c as [number, number]) : c && typeof c.lng === 'number' ? [c.lng, c.lat] : HOME_VIEW.center;
+      const zoom = typeof cam?.zoom === 'number' ? Math.min(15.6, cam.zoom + 0.3) : HOME_VIEW.zoom;
+      return mapApi.flyTo({ center, zoom, pitch: HOME_VIEW.pitch, bearing: HOME_VIEW.bearing, duration: 4000 }).then(() => setState({ phase: 'landed' }));
     };
     mapApi.flyHome = flyHome;
     let started = false;

@@ -49,3 +49,6 @@ export const getDarkStyle = () => dark;
 
 export const UK_VIEW = { center: [-2.6, 54.3] as [number, number], zoom: 4.7 };
 export const HOME_VIEW = { center: siteCenter, zoom: 15.2, pitch: 48, bearing: -18 };
+
+// Keeps the site clear of the Value Ladder (right) and the Grok bar (bottom): every camera move centres in the free map area.
+export const HOME_PADDING = { top: 50, bottom: 150, left: 30, right: 448 };
