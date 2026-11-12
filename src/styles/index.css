@@ -80,17 +80,18 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .empty { padding: 8px 12px; color: #64748b; font-style: italic; }
 
 /* value ladder */
-.ladder { position: absolute; right: 12px; bottom: 28px; width: 372px; background: var(--panel); border: 1px solid var(--line); z-index: 5; }
+.ladder { position: absolute; right: 12px; bottom: 28px; width: 424px; background: var(--panel); border: 1px solid var(--line); z-index: 5; }
 .ladder { transition: right 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
 .ladder { transition: right 0.28s cubic-bezier(0.22, 1, 0.36, 1), bottom 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
 /* drawer open: slide clear of the drawer and above the Grok bar */
 .ladder-shift { right: 396px; bottom: 190px; }
-.ladder-row { display: grid; grid-template-columns: 118px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 3px 10px; }
+.ladder-row { display: grid; grid-template-columns: 138px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 3px 10px; }
 .bar { height: 9px; background: #0f172a; border: 1px solid var(--line); position: relative; }
 .bar > i { position: absolute; left: 0; top: 0; bottom: 0; transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1); }
 .ladder-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
 .ladder-grid > div { padding: 4px 10px; border-bottom: 1px solid rgba(31, 41, 55, 0.6); border-right: 1px solid rgba(31, 41, 55, 0.6); display: flex; justify-content: space-between; gap: 6px; align-items: baseline; }
-.ladder-grid .k { color: #64748b; font-size: 10px; white-space: nowrap; }
+.ladder-grid > div { min-width: 0; }
+.ladder-grid .k { color: #64748b; font-size: 10px; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 
 /* source drawer */
 .drawer { position: fixed; top: 44px; right: 0; bottom: 0; width: 384px; background: #080c15; border-left: 1px solid var(--line); transform: translateX(100%); transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1); z-index: 40; display: flex; flex-direction: column; }
@@ -113,6 +114,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .drawer-link:hover { background: rgba(56, 189, 248, 0.12); }
 
 /* map overlays */
+.map-root { position: absolute !important; inset: 0; width: 100%; height: 100%; }
 .map-btn { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); z-index: 6; padding: 7px 14px; background: var(--panel); border: 1px solid #f43f5e; color: #fecdd3; font-weight: 600; letter-spacing: 0.02em; }
 .map-btn:hover { background: rgba(244, 63, 94, 0.18); }
 .map-tag { position: absolute; left: 12px; top: 12px; z-index: 5; padding: 3px 8px; background: var(--panel); border: 1px solid var(--line); font-size: 10.5px; color: #94a3b8; }
@@ -134,7 +136,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 
 /* Grok co-pilot */
 /* centred in the map area left of the Value Ladder so the two never overlap at 1440x900 */
-.grok { position: absolute; left: calc((100% - 396px) / 2); bottom: 26px; transform: translateX(-50%); z-index: 6; width: min(520px, calc(100% - 440px)); min-width: 340px; }
+.grok { position: absolute; left: calc((100% - 448px) / 2); bottom: 26px; transform: translateX(-50%); z-index: 6; width: min(520px, calc(100% - 492px)); min-width: 340px; }
 .grok-bar { display: flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid #334155; padding: 6px 8px; }
 .grok-bar:focus-within { border-color: var(--accent); }
 .grok-orb { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--accent); display: grid; place-items: center; font-family: var(--font-mono); font-size: 10px; color: var(--accent); flex: 0 0 auto; }

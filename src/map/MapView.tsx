@@ -317,7 +317,8 @@ export function MapView() {
 
   return (
     <div className="absolute inset-0">
-      <div ref={ref} className="absolute inset-0" />
+      {/* Inline + .map-root: maplibre-gl.css sets .maplibregl-map{position:relative}, which beats Tailwind's layered .absolute and collapsed the map to zero height. */}
+      <div ref={ref} className="map-root" style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }} />
       <div className="map-tag">
         {VIEWS.find((v) => v.id === view)?.label}
         {terrainOn ? ' · terrain on' : ''}
