@@ -10,3 +10,6 @@ data/cache/
 *msci_raw*
 *.mp4
 !demo/*.mp4
+
+data/msci_cache/
+*.rca.json

@@ -25,8 +25,9 @@ git clone https://github.com/samuel111potel-droid/grokathon.git
 cd grokathon
 npm install
 npm run dev          # opens on http://localhost:5173
+npm test             # community gates / weights / risk / noise
 ```
-The demo runs with no API keys. It reads only the verified JSON files in `data/`, so there are no live calls during the pitch. To check that every figure is sourced:
+The demo runs with no API keys. It reads `data/live/` when present, otherwise `data/sample/`, so there are no live calls during the pitch. Community risk (`src/lib/community.ts`) shows theme weights and hard gates in an on-screen table so judges can see how the 0–100 score is made. To check that every figure is sourced:
 ```bash
 python3 scripts/check_traceability.py
 ```
