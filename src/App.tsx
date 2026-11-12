@@ -7,6 +7,7 @@ import { ValueLadder } from './components/ValueLadder';
 import { SourceDrawer } from './components/Source';
 import { dropRedLine, getState, hooks, replan, setLayer, setRound, setState, VIEW_ORDER } from './components/store';
 import { MapView } from './map/MapView';
+import { GrokBar, GrokCursor } from './components/GrokBar';
 
 function App() {
   useEffect(() => {
@@ -47,9 +48,11 @@ function App() {
         <main className="relative flex-1 min-w-0">
           <MapView />
           <ValueLadder />
+          <GrokBar />
         </main>
       </div>
       <SourceDrawer />
+      <GrokCursor />
     </div>
   );
 }

@@ -1,0 +1,79 @@
+[
+  {
+    "prompt": "Take me to Ratcliffe-on-Soar and drop the red line",
+    "reply": "Flying to the site in Satellite 3D, then drawing the candidate boundary and the Round 0 test fit. [S1-06]",
+    "actions": [
+      { "type": "set_view", "view": "satellite3d" },
+      { "type": "fly_to", "target": "site" },
+      { "type": "toggle_layer", "id": "redline", "on": true },
+      { "type": "toggle_layer", "id": "testfit", "on": true }
+    ],
+    "delay_ms": 300,
+    "recorded": false
+  },
+  {
+    "prompt": "Show me who lives within 300 m",
+    "reply": "Drawing the ring around the generator compound. The count of homes inside is done by code from the receptor layer, not by me. [C1-02]",
+    "actions": [
+      { "type": "draw_ring", "center": "auto:generators", "radius_m": 300, "label": "Homes near the generators" }
+    ],
+    "delay_ms": 300,
+    "recorded": false
+  },
+  {
+    "prompt": "Fly to the nearest substation with headroom",
+    "reply": "The nearest P1 row with headroom above zero is this one. The headroom figure shown comes from the row itself. [P1-01] [P2-01]",
+    "actions": [
+      { "type": "fly_to", "target": "auto:nearest_substation" },
+      { "type": "highlight", "ids": ["P1-01"] },
+      { "type": "add_callout", "at": "row:P1-01", "title": "Nearest substation with headroom", "text": "Headroom and route length, from the cited rows:", "citation_ids": ["P1-01", "P2-01"] }
+    ],
+    "delay_ms": 300,
+    "recorded": false
+  },
+  {
+    "prompt": "Label the flood and contamination risks",
+    "reply": "Switching on the flood and contamination layers and pinning what our rows say about each. [S1-01] [S1-02]",
+    "actions": [
+      { "type": "fly_to", "target": "site" },
+      { "type": "toggle_layer", "id": "flood", "on": true },
+      { "type": "toggle_layer", "id": "contamination", "on": true },
+      { "type": "add_callout", "at": "feature:flood-z3", "title": "Flood zone overlap", "text": "Flood polygon reaches the western edge of the boundary.", "citation_ids": ["S1-01"] },
+      { "type": "add_callout", "at": "feature:contam-ash", "title": "Ash / made ground", "text": "Contamination polygon inside the boundary.", "citation_ids": ["S1-02"] }
+    ],
+    "delay_ms": 300,
+    "recorded": false
+  },
+  {
+    "prompt": "Why does Round 0 fail?",
+    "reply": "Round 0 puts the generator compound beside the nearest homes, so the predicted level misses the night-time target. Measuring the gap now. [S2-07] [S2-08]",
+    "actions": [
+      { "type": "set_round", "round": 0 },
+      { "type": "fly_to", "target": "auto:generators" },
+      { "type": "measure", "from": "auto:generators", "to": "auto:nearest_home" },
+      { "type": "highlight", "ids": ["gen-bank-1"] },
+      { "type": "add_callout", "at": "auto:generators", "title": "Generators beside homes", "text": "Source level and night-time target, from the cited rows:", "citation_ids": ["S2-07", "S2-08"] }
+    ],
+    "delay_ms": 300,
+    "recorded": false
+  },
+  {
+    "prompt": "Re-plan for consent",
+    "reply": "Applying the fixes the objection cards ask for: generators away from homes first, then the tree belt. Then opening the working behind the land value.",
+    "actions": [
+      { "type": "fly_to", "target": "site" },
+      { "type": "apply_fix", "fix": "move generators away from homes" },
+      { "type": "apply_fix", "fix": "add tree belt" },
+      { "type": "open_source", "id": "metric:risk_adjusted_land_value_gbp_m" }
+    ],
+    "delay_ms": 300,
+    "recorded": false
+  },
+  {
+    "prompt": "Prove that number",
+    "reply": "Opening the method and the sourced inputs behind this round's risk-adjusted land value.",
+    "actions": [{ "type": "open_source", "id": "metric:risk_adjusted_land_value_gbp_m" }],
+    "chip_only": true,
+    "recorded": false
+  }
+]
