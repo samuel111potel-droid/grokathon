@@ -1,0 +1,1157 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.263304,
+          52.860008
+        ]
+      },
+      "properties": {
+        "id": "C1-04",
+        "kind": "home",
+        "label": "Nearest residential building #1: 89 m SW of the site boundary (OSM way 464631297)",
+        "citation_ids": [
+          "C1-04"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.265835,
+          52.86203
+        ]
+      },
+      "properties": {
+        "id": "C1-05",
+        "kind": "home",
+        "label": "Nearest residential building #2: 228 m WSW of the site boundary (OSM way 464631294)",
+        "citation_ids": [
+          "C1-05"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.267329,
+          52.863564
+        ]
+      },
+      "properties": {
+        "id": "C1-06",
+        "kind": "home",
+        "label": "Nearest residential building #3: 315 m WSW of the site boundary (OSM way 464631293)",
+        "citation_ids": [
+          "C1-06"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.264225,
+          52.857265
+        ]
+      },
+      "properties": {
+        "id": "C1-07",
+        "kind": "home",
+        "label": "Nearest residential building #4: 379 m SSW of the site boundary (OSM way 464590281)",
+        "citation_ids": [
+          "C1-07"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.269098,
+          52.866268
+        ]
+      },
+      "properties": {
+        "id": "C1-08",
+        "kind": "home",
+        "label": "Nearest residential building #5: 390 m W of the site boundary (OSM way 464924786)",
+        "citation_ids": [
+          "C1-08"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270065,
+          52.868437
+        ]
+      },
+      "properties": {
+        "id": "C1-09",
+        "kind": "home",
+        "label": "Nearest residential building #6: 431 m WNW of the site boundary (OSM way 464924781)",
+        "citation_ids": [
+          "C1-09"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270149,
+          52.868519
+        ]
+      },
+      "properties": {
+        "id": "C1-10",
+        "kind": "home",
+        "label": "Nearest residential building #7: 436 m WNW of the site boundary (OSM way 464924782)",
+        "citation_ids": [
+          "C1-10"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270323,
+          52.868646
+        ]
+      },
+      "properties": {
+        "id": "C1-11",
+        "kind": "home",
+        "label": "Nearest residential building #8: 447 m WNW of the site boundary (OSM way 464924780)",
+        "citation_ids": [
+          "C1-11"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270344,
+          52.868782
+        ]
+      },
+      "properties": {
+        "id": "C1-12",
+        "kind": "home",
+        "label": "Nearest residential building #9: 449 m WNW of the site boundary (OSM way 464924779)",
+        "citation_ids": [
+          "C1-12"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270372,
+          52.868919
+        ]
+      },
+      "properties": {
+        "id": "C1-13",
+        "kind": "home",
+        "label": "Nearest residential building #10: 451 m WNW of the site boundary (OSM way 464924778)",
+        "citation_ids": [
+          "C1-13"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270373,
+          52.869101
+        ]
+      },
+      "properties": {
+        "id": "C1-14",
+        "kind": "home",
+        "label": "Nearest residential building #11: 453 m WNW of the site boundary (OSM way 464924777)",
+        "citation_ids": [
+          "C1-14"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.264485,
+          52.8566
+        ]
+      },
+      "properties": {
+        "id": "C1-15",
+        "kind": "home",
+        "label": "Nearest residential building #12: 453 m SSW of the site boundary (OSM way 464590289)",
+        "citation_ids": [
+          "C1-15"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.27025,
+          52.869903
+        ]
+      },
+      "properties": {
+        "id": "C1-16",
+        "kind": "home",
+        "label": "Nearest residential building #13: 455 m WNW of the site boundary (OSM way 464924776)",
+        "citation_ids": [
+          "C1-16"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270215,
+          52.870094
+        ]
+      },
+      "properties": {
+        "id": "C1-17",
+        "kind": "home",
+        "label": "Nearest residential building #14: 457 m WNW of the site boundary (OSM way 464924775)",
+        "citation_ids": [
+          "C1-17"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.27013,
+          52.870343
+        ]
+      },
+      "properties": {
+        "id": "C1-18",
+        "kind": "home",
+        "label": "Nearest residential building #15: 459 m WNW of the site boundary (OSM way 464924774)",
+        "citation_ids": [
+          "C1-18"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270021,
+          52.870673
+        ]
+      },
+      "properties": {
+        "id": "C1-19",
+        "kind": "home",
+        "label": "Nearest residential building #16: 463 m WNW of the site boundary (OSM way 464924773)",
+        "citation_ids": [
+          "C1-19"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.264616,
+          52.855903
+        ]
+      },
+      "properties": {
+        "id": "C1-20",
+        "kind": "home",
+        "label": "Nearest residential building #17: 529 m SSW of the site boundary (OSM way 464579821)",
+        "citation_ids": [
+          "C1-20"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.263465,
+          52.855419
+        ]
+      },
+      "properties": {
+        "id": "C1-21",
+        "kind": "home",
+        "label": "Nearest residential building #18: 545 m SSW of the site boundary (OSM way 464579835)",
+        "citation_ids": [
+          "C1-21"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.263571,
+          52.855423
+        ]
+      },
+      "properties": {
+        "id": "C1-22",
+        "kind": "home",
+        "label": "Nearest residential building #19: 549 m SSW of the site boundary (OSM way 464579838)",
+        "citation_ids": [
+          "C1-22"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.263661,
+          52.855281
+        ]
+      },
+      "properties": {
+        "id": "C1-23",
+        "kind": "home",
+        "label": "Nearest residential building #20: 565 m SSW of the site boundary (OSM way 464579839)",
+        "citation_ids": [
+          "C1-23"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25513,
+          52.86555
+        ]
+      },
+      "properties": {
+        "id": "C1-24",
+        "kind": "school",
+        "label": "School within 2 km of the boundary: none tagged in OpenStreetMap",
+        "citation_ids": [
+          "C1-24"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.266565,
+          52.85529
+        ]
+      },
+      "properties": {
+        "id": "C1-25",
+        "kind": "place_of_worship",
+        "label": "Place of worship: Holy Trinity, 642 m from the site boundary, bearing 214 degrees (SW)",
+        "citation_ids": [
+          "C1-25"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.24414,
+          52.875538
+        ]
+      },
+      "properties": {
+        "id": "C1-26",
+        "kind": "place_of_worship",
+        "label": "Place of worship: All Saints Church, 774 m from the site boundary, bearing 34 degrees (NNE)",
+        "citation_ids": [
+          "C1-26"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.256278,
+          52.844893
+        ]
+      },
+      "properties": {
+        "id": "C1-27",
+        "kind": "place_of_worship",
+        "label": "Place of worship: St Winifred's Church, 1616 m from the site boundary, bearing 182 degrees (S)",
+        "citation_ids": [
+          "C1-27"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25513,
+          52.86555
+        ]
+      },
+      "properties": {
+        "id": "C1-28",
+        "kind": "home",
+        "label": "Care home within 2 km of the boundary: none tagged in OpenStreetMap",
+        "citation_ids": [
+          "C1-28"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.271496,
+          52.866507
+        ]
+      },
+      "properties": {
+        "id": "C1-29",
+        "kind": "sssi",
+        "label": "Site of Special Scientific Interest within 2 km: Lockington Marshes SSSI, nearest mapped boundary point about 543 m f...",
+        "citation_ids": [
+          "C1-29"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25513,
+          52.86555
+        ]
+      },
+      "properties": {
+        "id": "C1-31",
+        "kind": "listed_building",
+        "label": "Listed buildings within 2 km: 28 (Grade I: 2, Grade II*: 1, Grade II: 25)",
+        "citation_ids": [
+          "C1-31"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.264828,
+          52.870784
+        ]
+      },
+      "properties": {
+        "id": "C1-32",
+        "kind": "listed_building",
+        "label": "Listed building: Redhill Tunnel South Portals (West Spc6 28 And East Spc6 28A) (Grade II, list entry 1417715), 182 m ...",
+        "citation_ids": [
+          "C1-32"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.265606,
+          52.872035
+        ]
+      },
+      "properties": {
+        "id": "C1-33",
+        "kind": "listed_building",
+        "label": "Listed building: Redhill Tunnel North Portal (Grade II, list entry 1260025), 292 m NW of the site boundary",
+        "citation_ids": [
+          "C1-33"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.270232,
+          52.868135
+        ]
+      },
+      "properties": {
+        "id": "C1-34",
+        "kind": "listed_building",
+        "label": "Listed building: Packhorse Bridge Redhill Lock (Grade II, list entry 1242237), 444 m WNW of the site boundary",
+        "citation_ids": [
+          "C1-34"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.248936,
+          52.874655
+        ]
+      },
+      "properties": {
+        "id": "C1-35",
+        "kind": "home",
+        "label": "Listed building: Ice House (Grade II, list entry 1242434), 520 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-35"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.266571,
+          52.855329
+        ]
+      },
+      "properties": {
+        "id": "C1-36",
+        "kind": "place_of_worship",
+        "label": "Listed building: Church Of Holy Trinity (Grade I, list entry 1242163), 639 m SW of the site boundary",
+        "citation_ids": [
+          "C1-36"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.246529,
+          52.875548
+        ]
+      },
+      "properties": {
+        "id": "C1-37",
+        "kind": "listed_building",
+        "label": "Listed building: Pair Of Gate Piers (Grade II, list entry 1260045), 681 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-37"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.263252,
+          52.877107
+        ]
+      },
+      "properties": {
+        "id": "C1-38",
+        "kind": "listed_building",
+        "label": "Listed building: Canal Bridge At Sk 496 313 (Grade II, list entry 1204307), 734 m NNW of the site boundary",
+        "citation_ids": [
+          "C1-38"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.247687,
+          52.876436
+        ]
+      },
+      "properties": {
+        "id": "C1-39",
+        "kind": "listed_building",
+        "label": "Listed building: Thrumpton Hall And Attached Range Of Outbuildings (Grade I, list entry 1242464), 734 m NNE of the si...",
+        "citation_ids": [
+          "C1-39"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244157,
+          52.875082
+        ]
+      },
+      "properties": {
+        "id": "C1-40",
+        "kind": "home",
+        "label": "Listed building: The Garden House (Grade II, list entry 1242429), 734 m NE of the site boundary",
+        "citation_ids": [
+          "C1-40"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.267462,
+          52.854445
+        ]
+      },
+      "properties": {
+        "id": "C1-41",
+        "kind": "home",
+        "label": "Listed building: Manor Farmhouse (Grade II, list entry 1242164), 753 m SW of the site boundary",
+        "citation_ids": [
+          "C1-41"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244607,
+          52.875538
+        ]
+      },
+      "properties": {
+        "id": "C1-42",
+        "kind": "home",
+        "label": "Listed building: Pair Of Gate Piers At Entrance To Thrumpton Hall Drive 13 Metres South Of Barn And Outbuilding At Th...",
+        "citation_ids": [
+          "C1-42"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.247608,
+          52.876635
+        ]
+      },
+      "properties": {
+        "id": "C1-43",
+        "kind": "listed_building",
+        "label": "Listed building: West Gateway (Grade II, list entry 1242433), 756 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-43"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244861,
+          52.875753
+        ]
+      },
+      "properties": {
+        "id": "C1-44",
+        "kind": "home",
+        "label": "Listed building: Barn At Thrumpton House (Grade II, list entry 1242430), 762 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-44"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.242958,
+          52.874985
+        ]
+      },
+      "properties": {
+        "id": "C1-45",
+        "kind": "home",
+        "label": "Listed building: Church Farmhouse (Grade II, list entry 1260042), 774 m NE of the site boundary",
+        "citation_ids": [
+          "C1-45"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244077,
+          52.875541
+        ]
+      },
+      "properties": {
+        "id": "C1-46",
+        "kind": "place_of_worship",
+        "label": "Listed building: Church Of All Saints (Grade II*, list entry 1242423), 777 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-46"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244519,
+          52.875768
+        ]
+      },
+      "properties": {
+        "id": "C1-47",
+        "kind": "home",
+        "label": "Listed building: Barn And Attached Outbuilding At Thrumpton House (Grade II, list entry 1260022), 778 m NNE of the si...",
+        "citation_ids": [
+          "C1-47"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.24423,
+          52.875711
+        ]
+      },
+      "properties": {
+        "id": "C1-48",
+        "kind": "home",
+        "label": "Listed building: Church House (Grade II, list entry 1260040), 785 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-48"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.243918,
+          52.875583
+        ]
+      },
+      "properties": {
+        "id": "C1-49",
+        "kind": "place_of_worship",
+        "label": "Listed building: Font In Churchyard Of Church Of All Saints Single Metre North Of The Chancel (Grade II, list entry 1...",
+        "citation_ids": [
+          "C1-49"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.245554,
+          52.876781
+        ]
+      },
+      "properties": {
+        "id": "C1-50",
+        "kind": "home",
+        "label": "Listed building: The Manor House (Grade II, list entry 1260044), 831 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-50"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.246216,
+          52.877034
+        ]
+      },
+      "properties": {
+        "id": "C1-51",
+        "kind": "listed_building",
+        "label": "Listed building: East Gateway (Grade II, list entry 1242460), 835 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-51"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.243991,
+          52.876241
+        ]
+      },
+      "properties": {
+        "id": "C1-52",
+        "kind": "listed_building",
+        "label": "Listed building: The Cottage Yew Tree Cottage (Grade II, list entry 1242427), 841 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-52"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244014,
+          52.876628
+        ]
+      },
+      "properties": {
+        "id": "C1-53",
+        "kind": "listed_building",
+        "label": "Listed building: Laburnum Cottage (Grade II, list entry 1260041), 874 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-53"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244257,
+          52.877015
+        ]
+      },
+      "properties": {
+        "id": "C1-54",
+        "kind": "listed_building",
+        "label": "Listed building: Manor Cottage, Number 2 Hall Gates And Adjoining Wall (Grade II, list entry 1260043), 899 m NNE of t...",
+        "citation_ids": [
+          "C1-54"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.244155,
+          52.877161
+        ]
+      },
+      "properties": {
+        "id": "C1-55",
+        "kind": "home",
+        "label": "Listed building: Gatehouse And Gatehouse Cottage (Grade II, list entry 1242431), 917 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-55"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.243931,
+          52.87716
+        ]
+      },
+      "properties": {
+        "id": "C1-56",
+        "kind": "listed_building",
+        "label": "Listed building: Elm Cottage (Grade II, list entry 1242459), 925 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-56"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.243604,
+          52.877211
+        ]
+      },
+      "properties": {
+        "id": "C1-57",
+        "kind": "listed_building",
+        "label": "Listed building: The Old Post Office (Grade II, list entry 1242428), 942 m NNE of the site boundary",
+        "citation_ids": [
+          "C1-57"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.255638,
+          52.87926
+        ]
+      },
+      "properties": {
+        "id": "C1-58",
+        "kind": "listed_building",
+        "label": "Listed building: Cranfleet Lock (Grade II, list entry 1087935), 971 m N of the site boundary",
+        "citation_ids": [
+          "C1-58"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.249707,
+          52.848059
+        ]
+      },
+      "properties": {
+        "id": "C1-59",
+        "kind": "listed_building",
+        "label": "Listed building: Lodge And Attached Gateway (Grade II, list entry 1242095), 1396 m S of the site boundary",
+        "citation_ids": [
+          "C1-59"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.264614,
+          52.855308
+        ]
+      },
+      "properties": {
+        "id": "C1-62",
+        "kind": "settlement",
+        "label": "Village within 3 km: Ratcliffe-on-Soar, 592 m from the site boundary to the OSM place point, bearing 209 degrees (SSW)",
+        "citation_ids": [
+          "C1-62"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.2454,
+          52.876177
+        ]
+      },
+      "properties": {
+        "id": "C1-63",
+        "kind": "settlement",
+        "label": "Village within 3 km: Thrumpton, 780 m from the site boundary to the OSM place point, bearing 29 degrees (NNE)",
+        "citation_ids": [
+          "C1-63"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.232655,
+          52.85387
+        ]
+      },
+      "properties": {
+        "id": "C1-64",
+        "kind": "settlement",
+        "label": "Hamlet within 3 km: New Kingston, 1449 m from the site boundary to the OSM place point, bearing 131 degrees (SE)",
+        "citation_ids": [
+          "C1-64"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.258106,
+          52.845187
+        ]
+      },
+      "properties": {
+        "id": "C1-65",
+        "kind": "settlement",
+        "label": "Village within 3 km: Kingston on Soar, 1575 m from the site boundary to the OSM place point, bearing 185 degrees (S)",
+        "citation_ids": [
+          "C1-65"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.203243,
+          52.867151
+        ]
+      },
+      "properties": {
+        "id": "C1-66",
+        "kind": "settlement",
+        "label": "Village within 3 km: Gotham, 2738 m from the site boundary to the OSM place point, bearing 87 degrees (E)",
+        "citation_ids": [
+          "C1-66"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.225219,
+          52.889917
+        ]
+      },
+      "properties": {
+        "id": "C1-67",
+        "kind": "settlement",
+        "label": "Village within 3 km: Barton-in-Fabis, 2783 m from the site boundary to the OSM place point, bearing 37 degrees (NE)",
+        "citation_ids": [
+          "C1-67"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.299941,
+          52.88166
+        ]
+      },
+      "properties": {
+        "id": "C1-68",
+        "kind": "settlement",
+        "label": "Village within 3 km: Sawley, 2805 m from the site boundary to the OSM place point, bearing 301 degrees (WNW)",
+        "citation_ids": [
+          "C1-68"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.277935,
+          52.835538
+        ]
+      },
+      "properties": {
+        "id": "C1-69",
+        "kind": "settlement",
+        "label": "Village within 3 km: Kegworth, 2939 m from the site boundary to the OSM place point, bearing 205 degrees (SSW)",
+        "citation_ids": [
+          "C1-69"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25513,
+          52.86555
+        ]
+      },
+      "properties": {
+        "id": "C1-70",
+        "kind": "green_belt",
+        "label": "Green belt within 2 km of the site: not established",
+        "citation_ids": [
+          "C1-70"
+        ]
+      }
+    }
+  ]
+}

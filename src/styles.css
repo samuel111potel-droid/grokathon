@@ -435,6 +435,13 @@ body {
   font-weight: 500;
 }
 
+.score-row-ids {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  word-break: break-word;
+}
+
 .gate-pill {
   display: inline-block;
   padding: 1px 6px;

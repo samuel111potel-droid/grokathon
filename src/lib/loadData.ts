@@ -4,12 +4,18 @@ import type {
   HomesFact,
   Layout,
   ObjectionsFile,
+  PlanningQuote,
   S2File,
 } from '../types';
 
 type JsonModule = Record<string, unknown> | unknown[];
 
 const liveModules = import.meta.glob('../../data/live/*.{json,geojson}', {
+  eager: true,
+  import: 'default',
+}) as Record<string, JsonModule>;
+
+const outModules = import.meta.glob('../../data/out/*.{json,geojson}', {
   eager: true,
   import: 'default',
 }) as Record<string, JsonModule>;
@@ -22,11 +28,15 @@ const sampleModules = import.meta.glob('../../data/sample/*.{json,geojson}', {
 function pickModule(fileName: string): JsonModule {
   const liveKey = Object.keys(liveModules).find((k) => k.endsWith(`/${fileName}`));
   if (liveKey) return liveModules[liveKey];
+  const outKey = Object.keys(outModules).find((k) => k.endsWith(`/${fileName}`));
+  if (outKey) return outModules[outKey];
   const sampleKey = Object.keys(sampleModules).find((k) =>
     k.endsWith(`/${fileName}`),
   );
   if (sampleKey) return sampleModules[sampleKey];
-  throw new Error(`Missing data file: ${fileName} (checked data/live then data/sample)`);
+  throw new Error(
+    `Missing data file: ${fileName} (checked data/live, data/out, then data/sample)`,
+  );
 }
 
 export function loadJson<T>(fileName: string): T {
@@ -59,8 +69,10 @@ export function loadHomes(): HomesFact {
   return loadJson<HomesFact>('C1.json');
 }
 
-export function loadC2(): C2File {
-  return loadJson<C2File>('C2.json');
+export function loadC2(): C2File | PlanningQuote[] {
+  const raw = loadJson<C2File | PlanningQuote[]>('C2.json');
+  // Flat EvidenceRow list from Lane 2, or legacy nested { quotes: [...] }.
+  return raw;
 }
 
 export function loadS2(): S2File {

@@ -70,12 +70,18 @@ export interface LonLat {
 export interface PlanningQuote extends FactRow {
   theme: string;
   /** Decision text; anything containing "refus" counts double. */
-  decision: string;
+  decision?: string;
+  /** Who raised the objection; empty ⇒ row is not counted in themeWeights. */
+  raised_by?: string;
 }
 
-export interface C2File extends FactRow {
-  quotes: PlanningQuote[];
-}
+/** Flat C2 EvidenceRow list (Lane 2 / data/out) or legacy nested quotes file. */
+export type C2File = FactRow & {
+  quotes?: PlanningQuote[];
+  theme?: string;
+  decision?: string;
+  raised_by?: string;
+};
 
 export interface FloodZone {
   id: string;

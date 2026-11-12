@@ -216,6 +216,7 @@ export default function App() {
       <ScoreBreakdown
         score={riskResult.score}
         weights={weightResult.weights}
+        rowIdsByTheme={weightResult.rowIdsByTheme}
         gates={gateResult.gates}
         activeCardIds={riskResult.activeCardIds}
         resolvedCardIds={riskResult.resolvedCardIds}

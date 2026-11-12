@@ -39,7 +39,22 @@ export interface ThemeWeightsResult {
   weights: Record<string, number>;
   /** Weighted quote counts before normalisation (refusals already doubled). */
   counts: Record<string, number>;
+  /** Row ids counted under each (adapted) theme. */
+  rowIdsByTheme: Record<string, string[]>;
   usedRowIds: string[];
+}
+
+/** Theme overrides applied in the adapter — never written back to C2.json. */
+export const C2_THEME_RETAG: Record<string, string> = {
+  'C2-07': 'heat',
+  'C2-08': 'scale of development',
+  'C2-11': 'environment',
+  'C2-12': 'airport safeguarding',
+};
+
+/** Adapt a C2 row's display theme (retag map first, else the row's theme). */
+export function adaptC2Theme(row: { id: string; theme?: string }): string {
+  return C2_THEME_RETAG[row.id] ?? (row.theme || '').trim();
 }
 
 export interface CommunityRiskResult {
@@ -224,9 +239,9 @@ export function gates(
   return { gates: gateList, usedRowIds };
 }
 
-function asQuotes(c2: C2File | PlanningQuote[] | FactLike): PlanningQuote[] {
+function asC2Rows(c2: C2File | PlanningQuote[] | FactLike): PlanningQuote[] {
   if (Array.isArray(c2)) return c2 as PlanningQuote[];
-  if ('quotes' in c2 && Array.isArray(c2.quotes)) return c2.quotes;
+  if ('quotes' in c2 && Array.isArray(c2.quotes)) return c2.quotes as PlanningQuote[];
   // Single fact row with a theme field — treat as one quote.
   if ('theme' in c2 && typeof (c2 as PlanningQuote).theme === 'string') {
     return [c2 as PlanningQuote];
@@ -239,26 +254,38 @@ function isRefusal(q: PlanningQuote): boolean {
   return d.includes('refus');
 }
 
+function hasRaiser(q: PlanningQuote): boolean {
+  return Boolean((q.raised_by ?? '').trim());
+}
+
 /**
- * Weight per theme = share of C2 quotes with that theme.
- * Refusal quotes count double.
+ * Weight per theme = share of counted C2 rows with that theme.
+ * Counts only status "found" rows with a non-empty raised_by (drops decisions,
+ * application descriptions, and not-found rows). Refusal rows count double.
+ * Theme retags (C2-07/08/11/12) are applied in the adapter, not in the data file.
  */
 export function themeWeights(
   c2: C2File | PlanningQuote[] | FactLike,
 ): ThemeWeightsResult {
-  const quotes = asQuotes(c2).filter((q) => q.check !== 'fail');
-  const usedRowIds = uniq([
-    !Array.isArray(c2) && 'id' in c2 ? c2.id : '',
-    ...quotes.map((q) => q.id),
-  ]);
+  const rows = asC2Rows(c2).filter(
+    (q) =>
+      q.check !== 'fail' &&
+      q.status === 'found' &&
+      hasRaiser(q),
+  );
 
   const counts: Record<string, number> = {};
+  const rowIdsByTheme: Record<string, string[]> = {};
   let total = 0;
-  for (const q of quotes) {
-    const theme = (q.theme || 'other').toLowerCase();
+
+  for (const q of rows) {
+    const theme = adaptC2Theme(q);
+    if (!theme) continue;
     const w = isRefusal(q) ? 2 : 1;
     counts[theme] = (counts[theme] ?? 0) + w;
     total += w;
+    if (!rowIdsByTheme[theme]) rowIdsByTheme[theme] = [];
+    rowIdsByTheme[theme].push(q.id);
   }
 
   const weights: Record<string, number> = {};
@@ -266,7 +293,8 @@ export function themeWeights(
     weights[theme] = total === 0 ? 0 : count / total;
   }
 
-  return { weights, counts, usedRowIds };
+  const usedRowIds = uniq(Object.values(rowIdsByTheme).flat());
+  return { weights, counts, rowIdsByTheme, usedRowIds };
 }
 
 function meanCentroid(blocks: LayoutBlock[]): LonLat | null {
