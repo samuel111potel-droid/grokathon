@@ -11,7 +11,10 @@ export function SourceChip({ row, label }: Props) {
   const panelId = useId();
   const rootRef = useRef<HTMLSpanElement>(null);
   const isAssumption = row.status === "assumption";
-  const chipLabel = label ?? (isAssumption ? "assumption" : row.source_org || "source");
+  const isComputed = row.status === "computed";
+  const chipLabel =
+    label ??
+    (isComputed ? "computed" : isAssumption ? "assumption" : row.source_org || row.id);
 
   useEffect(() => {
     if (!open) return;
@@ -30,10 +33,13 @@ export function SourceChip({ row, label }: Props) {
   }, [open]);
 
   return (
-    <span className={`source-chip-wrap${isAssumption ? " is-assumption" : ""}`} ref={rootRef}>
+    <span
+      className={`source-chip-wrap${isAssumption ? " is-assumption" : ""}${isComputed ? " is-computed" : ""}`}
+      ref={rootRef}
+    >
       <button
         type="button"
-        className={`source-chip${isAssumption ? " assumption" : ""}`}
+        className={`source-chip${isAssumption ? " assumption" : ""}${isComputed ? " computed" : ""}`}
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
@@ -49,10 +55,13 @@ export function SourceChip({ row, label }: Props) {
             {row.source_org}
             {row.retrieved ? ` · ${row.retrieved}` : ""}
             {isAssumption ? " · assumption" : ""}
+            {isComputed ? " · computed" : ""}
           </p>
-          <a className="source-link" href={row.url} target="_blank" rel="noreferrer">
-            Open source
-          </a>
+          {row.url ? (
+            <a className="source-link" href={row.url} target="_blank" rel="noreferrer">
+              Open source
+            </a>
+          ) : null}
         </div>
       ) : null}
     </span>

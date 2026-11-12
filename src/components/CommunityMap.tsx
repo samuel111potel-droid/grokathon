@@ -7,15 +7,22 @@ import Map, {
   type MapLayerMouseEvent,
   type ViewStateChangeEvent,
 } from "react-map-gl/maplibre";
-import type { CircleLayerSpecification, FillLayerSpecification, LineLayerSpecification } from "maplibre-gl";
+import type {
+  CircleLayerSpecification,
+  FillLayerSpecification,
+  LineLayerSpecification,
+} from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 import type {
   AmenityFact,
-  CommunityData,
+  CommunityC1,
+  CommunityC2,
   HomeFact,
+  Layout,
   PlanningApplication,
   PlanningDecision,
+  SiteFeatureCollection,
 } from "../types";
 import { homeSquare } from "../lib/geo";
 import { PlanningCard } from "./PlanningCard";
@@ -28,8 +35,20 @@ const DECISION_COLOR: Record<PlanningDecision, string> = {
   approved: "#3faf6b",
 };
 
+const KIND_COLOR: Record<string, string> = {
+  hall: "#38bdf8",
+  generator: "#ef4444",
+  battery: "#34d399",
+  substation: "#818cf8",
+};
+
 interface Props {
-  data: CommunityData;
+  data: {
+    site: SiteFeatureCollection;
+    c1: CommunityC1;
+    c2: CommunityC2;
+  };
+  layout: Layout;
 }
 
 interface ViewState {
@@ -52,7 +71,9 @@ function homesGeoJSON(homes: HomeFact[]) {
   };
 }
 
-function ringsGeoJSON(rings: CommunityData["c1"]["rings"]) {
+function ringsGeoJSON(
+  rings: Array<{ id: string; radius_m: number; coordinates: [number, number][] }>,
+) {
   return {
     type: "FeatureCollection" as const,
     features: rings.map((r) => ({
@@ -84,24 +105,37 @@ function appsGeoJSON(apps: PlanningApplication[]) {
   };
 }
 
+function layoutGeoJSON(layout: Layout) {
+  return {
+    type: "FeatureCollection" as const,
+    features: layout.map((b) => ({
+      type: "Feature" as const,
+      properties: {
+        id: b.id,
+        kind: b.kind,
+        height_m: b.height_m,
+        color: KIND_COLOR[b.kind] ?? "#94a3b8",
+      },
+      geometry: {
+        type: "Polygon" as const,
+        coordinates: [b.polygon],
+      },
+    })),
+  };
+}
+
 const homeFill: FillLayerSpecification = {
   id: "homes-fill",
   type: "fill",
   source: "homes",
-  paint: {
-    "fill-color": "#d8b56a",
-    "fill-opacity": 0.9,
-  },
+  paint: { "fill-color": "#d8b56a", "fill-opacity": 0.9 },
 };
 
 const homeLine: LineLayerSpecification = {
   id: "homes-line",
   type: "line",
   source: "homes",
-  paint: {
-    "line-color": "#8a6a2e",
-    "line-width": 1,
-  },
+  paint: { "line-color": "#8a6a2e", "line-width": 1 },
 };
 
 const ringLine: LineLayerSpecification = {
@@ -120,10 +154,24 @@ const siteLine: LineLayerSpecification = {
   id: "site-line",
   type: "line",
   source: "site",
+  paint: { "line-color": "#e05353", "line-width": 2.5 },
+};
+
+const layoutFill: FillLayerSpecification = {
+  id: "layout-fill",
+  type: "fill",
+  source: "layout",
   paint: {
-    "line-color": "#e05353",
-    "line-width": 2.5,
+    "fill-color": ["get", "color"],
+    "fill-opacity": 0.55,
   },
+};
+
+const layoutLine: LineLayerSpecification = {
+  id: "layout-line",
+  type: "line",
+  source: "layout",
+  paint: { "line-color": "#e8eef2", "line-width": 1.2 },
 };
 
 const pinCircle: CircleLayerSpecification = {
@@ -152,12 +200,12 @@ function AmenityMarker({ item }: { item: AmenityFact }) {
   );
 }
 
-export function CommunityMap({ data }: Props) {
+export function CommunityMap({ data, layout }: Props) {
   const siteProps = data.site.features[0]?.properties;
   const [viewState, setViewState] = useState<ViewState>({
-    longitude: siteProps?.lon ?? -1.255,
-    latitude: siteProps?.lat ?? 52.865,
-    zoom: 14.2,
+    longitude: siteProps?.lon ?? -1.2550158,
+    latitude: siteProps?.lat ?? 52.8652963,
+    zoom: 13.6,
   });
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
@@ -167,6 +215,7 @@ export function CommunityMap({ data }: Props) {
     () => appsGeoJSON(data.c2.applications),
     [data.c2.applications],
   );
+  const layoutGj = useMemo(() => layoutGeoJSON(layout), [layout]);
   const amenities = useMemo(
     () => [...data.c1.schools, ...data.c1.places_of_worship],
     [data.c1.schools, data.c1.places_of_worship],
@@ -211,6 +260,11 @@ export function CommunityMap({ data }: Props) {
 
         <Source id="rings" type="geojson" data={rings}>
           <Layer {...ringLine} />
+        </Source>
+
+        <Source id="layout" type="geojson" data={layoutGj}>
+          <Layer {...layoutFill} />
+          <Layer {...layoutLine} />
         </Source>
 
         <Source id="homes" type="geojson" data={homes}>

@@ -1,0 +1,77 @@
+{
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "check": "pass",
+  "unit": "cards",
+  "value": 4,
+  "lat": 52.8652963,
+  "lon": -1.2550158,
+  "source_org": "Objection Writer",
+  "url": "https://www.rushcliffe.gov.uk/",
+  "quote": "Cards synthesised from C1 receptors, C2 precedents and S1 gates.",
+  "claim": "Community objection cards for the Ratcliffe-on-Soar layout sequence.",
+  "id": "OBJ",
+  "cards": [
+    {
+      "id": "OBJ1",
+      "theme": "noise",
+      "who_raised": "Parish / neighbouring residents on the south-west approach (C1 homes)",
+      "who_affected": "Homes nearest the SW generator edge",
+      "quote": "Standby plant on the residential edge would dominate night-time background levels at the nearest dwellings.",
+      "design_response": "Move generators to the opposite (north-east) edge by Round 2 and keep halls as a buffer.",
+      "fix": "move generators away from homes",
+      "row_ids": [
+        "C1",
+        "C2-01",
+        "S1-HOME"
+      ],
+      "severity": 5,
+      "resolved_in_round": 2
+    },
+    {
+      "id": "OBJ2",
+      "theme": "visual",
+      "who_raised": "Rushcliffe landscape / design officers (design guidance)",
+      "who_affected": "Receptors with sightlines across the Soar valley",
+      "quote": "40 m halls would read as an unbroken industrial cliff from the south-west approaches.",
+      "design_response": "Drop halls to \u226430 m in Round 1, then step heights down toward the NNE in Round 2.",
+      "fix": "lower hall height",
+      "row_ids": [
+        "S1-10",
+        "C1",
+        "SITE"
+      ],
+      "severity": 4,
+      "resolved_in_round": 1
+    },
+    {
+      "id": "OBJ3",
+      "theme": "visual",
+      "who_raised": "Local planning precedent (C2 massing refusals)",
+      "who_affected": "Village approaches within 1 km",
+      "quote": "Bulk and continuous roofscape were cited against comparable large-footprint schemes nearby.",
+      "design_response": "Hold total hall floor area under the 810,000 m\u00b2 gate (S1-05) while redistributing plant.",
+      "fix": "lower hall height",
+      "row_ids": [
+        "S1-05",
+        "C2-02"
+      ],
+      "severity": 3,
+      "resolved_in_round": 1
+    },
+    {
+      "id": "OBJ4",
+      "theme": "power_water",
+      "who_raised": "Grid / Freeport stakeholders",
+      "who_affected": "Connection customers at Ratcliffe 400 kV",
+      "quote": "The 720 MW application must remain connectable at the on-site 400 kV substation.",
+      "design_response": "Keep the on-site substation block; show TEC queue MW and dates beside the application.",
+      "fix": "move substation",
+      "row_ids": [
+        "P1-01",
+        "P1-17"
+      ],
+      "severity": 2
+    }
+  ]
+}

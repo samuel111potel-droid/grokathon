@@ -16,6 +16,12 @@ export function Legend() {
           <span className="swatch ring" aria-hidden /> 150 m / 300 m rings
         </li>
         <li>
+          <span className="swatch hall" aria-hidden /> Halls
+        </li>
+        <li>
+          <span className="swatch generator" aria-hidden /> Generators
+        </li>
+        <li>
           <span className="swatch refused" aria-hidden /> Planning refused
         </li>
         <li>

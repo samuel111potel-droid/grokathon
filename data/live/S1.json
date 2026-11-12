@@ -1,0 +1,58 @@
+{
+  "id": "S1",
+  "claim": "Site limits and design gates for Ratcliffe-on-Soar.",
+  "value": null,
+  "unit": "",
+  "lat": 52.8652963,
+  "lon": -1.2550158,
+  "source_org": "Rushcliffe Borough Council",
+  "url": "https://www.rushcliffe.gov.uk/",
+  "quote": "Site limit rows S1-05 (floor area) and S1-10 (hall height) drive the gates strip.",
+  "retrieved": "2026-11-12T21:30:00Z",
+  "status": "assumption",
+  "check": "pass",
+  "rows": [
+    {
+      "retrieved": "2026-11-12T21:30:00Z",
+      "status": "assumption",
+      "check": "pass",
+      "unit": "m2",
+      "value": 810000,
+      "lat": 52.8652963,
+      "lon": -1.2550158,
+      "source_org": "Rushcliffe Borough Council / East Midlands Freeport",
+      "url": "https://www.rushcliffe.gov.uk/",
+      "quote": "Design envelope / floorspace ceiling used for layout gating: 810,000 m\u00b2 total floor area.",
+      "claim": "Maximum total floorspace / building footprint for the LDO / Freeport envelope is under 810,000 m\u00b2.",
+      "id": "S1-05"
+    },
+    {
+      "retrieved": "2026-11-12T21:30:00Z",
+      "status": "assumption",
+      "check": "pass",
+      "unit": "m",
+      "value": 30,
+      "lat": 52.8652963,
+      "lon": -1.2550158,
+      "source_org": "Rushcliffe design guidance (demo assumption)",
+      "url": "https://www.rushcliffe.gov.uk/",
+      "quote": "Maximum hall height gate: 30 m AOD envelope for re-plan rounds.",
+      "claim": "Hall / building height should be at or under 30 m for the site design guidance applied in this demo.",
+      "id": "S1-10"
+    },
+    {
+      "retrieved": "2026-11-12T21:30:00Z",
+      "status": "computed",
+      "check": "pass",
+      "unit": "m",
+      "value": null,
+      "lat": 52.8652963,
+      "lon": -1.2550158,
+      "source_org": "Application geometry",
+      "url": "https://www.openstreetmap.org/",
+      "quote": "Nearest-home gate uses haversine distance from layout blocks to C1 home points.",
+      "claim": "Nearest residential building distance is computed in code from C1 homes to the active layout.",
+      "id": "S1-HOME"
+    }
+  ]
+}

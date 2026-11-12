@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "retrieved": "2026-11-12T21:30:00Z",
+        "status": "assumption",
+        "check": "pass",
+        "unit": "ha",
+        "value": 80,
+        "lat": 52.8652963,
+        "lon": -1.2550158,
+        "source_org": "Uniper / Rushcliffe Borough Council",
+        "url": "https://www.rushcliffe.gov.uk/",
+        "quote": "Former coal-fired Ratcliffe-on-Soar Power Station operational land at Green Street, Ratcliffe-on-Soar (NG11 0EE).",
+        "claim": "Ratcliffe-on-Soar Power Station red-line / operational land used as the data-centre search site.",
+        "id": "SITE"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -1.2627535637763514,
+              52.86188271753503
+            ],
+            [
+              -1.2478732488218296,
+              52.861523393065035
+            ],
+            [
+              -1.246682823625468,
+              52.86817089575997
+            ],
+            [
+              -1.2612655322808992,
+              52.869608193639955
+            ],
+            [
+              -1.2627535637763514,
+              52.86188271753503
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
