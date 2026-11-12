@@ -4,7 +4,7 @@ import { SourceChip } from './SourceChip';
 interface Metric {
   label: string;
   display: string;
-  fact: FactRow;
+  fact?: FactRow;
 }
 
 interface Props {
@@ -19,7 +19,7 @@ export function MetricsStrip({ metrics }: Props) {
           <div className="metric-label">{m.label}</div>
           <div className="metric-row">
             <span className="metric-value">{m.display}</span>
-            <SourceChip fact={m.fact} />
+            {m.fact ? <SourceChip fact={m.fact} /> : null}
           </div>
         </div>
       ))}

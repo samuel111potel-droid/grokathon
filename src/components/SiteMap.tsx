@@ -64,7 +64,7 @@ export function SiteMap({
   const homesWithNoise: HomeWithNoise[] = useMemo(
     () =>
       homes.map((h, i) => {
-        const { db } = noiseAtHome(layout, h, sourceDb);
+        const { db } = noiseAtHome(layout, h, sourceDb, { refDistanceM: 7 });
         return {
           id: h.id ?? `home-${i}`,
           lon: h.lon,

@@ -50,7 +50,9 @@ export function SourceChip({ fact, compact, variant = 'auto' }: Props) {
       {open && (
         <div id={panelId} className="source-popover" role="dialog">
           <p className="source-claim">{fact.claim}</p>
-          <blockquote className="source-quote">“{fact.quote}”</blockquote>
+          {fact.quote ? (
+            <blockquote className="source-quote">“{fact.quote}”</blockquote>
+          ) : null}
           <div className="source-meta">
             <span>{fact.source_org}</span>
             <span>·</span>
