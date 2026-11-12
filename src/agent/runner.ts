@@ -49,6 +49,10 @@ export async function play(step: ScriptStep) {
   } finally {
     busy = false;
     setState((s) => ({ grok: { ...s.grok, busy: false, status: '', input: '' }, cursor: { ...s.cursor, visible: false } }));
+    // let the answer linger, then clear it so the map stays uncluttered
+    window.setTimeout(() => {
+      if (!busy) setState((s) => ({ grok: { ...s.grok, reply: '' } }));
+    }, 6000);
   }
 }
 

@@ -52,6 +52,7 @@ export interface State {
   layers: Record<string, boolean>;
   communityMetric: string | null;
   drawer: DrawerTarget | null;
+  report: boolean;
   steps: Step[];
   callouts: Callout[];
   rings: Ring[];
@@ -88,6 +89,7 @@ let state: State = {
   },
   communityMetric: null,
   drawer: null,
+  report: false,
   steps: [],
   callouts: [],
   rings: [],

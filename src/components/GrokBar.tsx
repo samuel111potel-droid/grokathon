@@ -33,8 +33,7 @@ export function GrokBar() {
       >
         <span className={`grok-orb ${g.busy ? 'busy' : ''}`}>G</span>
         <input id="grok-input" value={g.busy ? g.input : draft} onChange={(e) => setDraft(e.target.value)} placeholder="Ask Grok…" autoComplete="off" readOnly={g.busy} />
-        <span className="grok-key">G</span>
-        <span className="grok-key">Space</span>
+        <span className="grok-hint">Space runs the next step</span>
         <span className={placeholderScript || requestedMode !== 'replay' ? 'badge-amber' : 'badge'} title="Replay plays data/agent/script.json. Live Grok is not wired in this build.">
           replay{placeholderScript ? ' · placeholder script' : ''}
         </span>

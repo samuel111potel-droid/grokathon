@@ -8,7 +8,7 @@ const stop = (fn: () => void) => (e: { stopPropagation: () => void }) => {
 };
 
 /** Clickable source chip. `id` = evidence row / MSCI receipt; `metric` = calculated round figure; `calc` = figure computed in the browser. */
-export function SourceChip({ id, metric, round, calc }: { id?: string; metric?: string; round?: number; calc?: CalcTarget }) {
+export function SourceChip({ id, metric, round, calc, verbose }: { id?: string; metric?: string; round?: number; calc?: CalcTarget; verbose?: boolean }) {
   if (calc)
     return (
       <button className="chip chip-est" title="Computed in the browser: click for method" onClick={stop(() => openSource(calc))}>
@@ -42,7 +42,7 @@ export function SourceChip({ id, metric, round, calc }: { id?: string; metric?: 
           : 'chip';
   return (
     <button className={cls} title={c.kind === 'row' ? c.row.claim : id} onClick={stop(() => openSource({ type: 'id', id }))}>
-      [{id}]
+      {verbose && c.kind === 'row' && c.row.status === 'assumption' ? 'assumption ' : ''}[{id}]
     </button>
   );
 }
@@ -58,13 +58,14 @@ export function Fig(p: {
   calc?: CalcTarget;
   digits?: number;
   status?: string;
+  verbose?: boolean;
 }) {
   const missing = p.v === null || p.v === undefined || p.v === '';
   const text = typeof p.v === 'number' ? fmtNum(p.v, p.digits ?? 1) : typeof p.v === 'boolean' ? (p.v ? 'pass' : 'fail') : String(p.v);
   return (
-    <span className="inline-flex items-baseline gap-1 whitespace-nowrap">
+    <span className="fig">
       {missing ? (
-        <span className="text-slate-500 italic">{p.status === 'not_found' ? 'not found' : '—'}</span>
+        <span className="unit">{p.status === 'not_found' ? 'not found' : '—'}</span>
       ) : (
         <span className="num">
           {p.prefix}
@@ -72,7 +73,7 @@ export function Fig(p: {
         </span>
       )}
       {!missing && p.unit ? <span className="unit">{p.unit}</span> : null}
-      <SourceChip id={p.id} metric={p.metric} round={p.round} calc={p.calc} />
+      <SourceChip id={p.id} metric={p.metric} round={p.round} calc={p.calc} verbose={p.verbose} />
     </span>
   );
 }

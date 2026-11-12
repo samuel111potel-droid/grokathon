@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { LeftPanel } from './components/LeftPanel';
 import { ValueLadder } from './components/ValueLadder';
 import { SourceDrawer } from './components/Source';
+import { Report } from './components/Report';
 import { dropRedLine, getState, hooks, replan, setLayer, setRound, setState, VIEW_ORDER } from './components/store';
 import { MapView } from './map/MapView';
 import { GrokBar, GrokCursor } from './components/GrokBar';
@@ -14,7 +15,7 @@ function App() {
     const onKey = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement | null;
       if (e.key === 'Escape') {
-        setState({ drawer: null, selection: null });
+        setState(getState().drawer ? { drawer: null } : { report: false, selection: null });
         el?.blur?.();
         return;
       }
@@ -25,6 +26,7 @@ function App() {
       else if (k === 'r') replan();
       else if (k === 'b') setLayer('ring', !getState().layers.ring);
       else if (k === 'l') dropRedLine();
+      else if (k === 'p') setState({ report: !getState().report });
       else if (k === 'v') {
         const i = VIEW_ORDER.indexOf(getState().view);
         setState({ view: VIEW_ORDER[(i + 1) % VIEW_ORDER.length] });
@@ -51,6 +53,7 @@ function App() {
           <GrokBar />
         </main>
       </div>
+      <Report />
       <SourceDrawer />
       <GrokCursor />
     </div>

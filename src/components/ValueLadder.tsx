@@ -1,6 +1,6 @@
 import { fmtNum, rounds } from './data';
 import { useStore, type CalcTarget } from './store';
-import { Fig, SourceChip } from './Source';
+import { Fig } from './Source';
 
 const GBP = '£';
 const MILLION = 'm';
@@ -16,7 +16,7 @@ export function ValueLadder() {
   const bars = [
     { label: 'Farmland', v: u.farmland_baseline_gbp_m, key: 'farmland_baseline_gbp_m', rd: round, color: '#64748b' },
     { label: 'Sheds downside floor', v: u.industrial_downside_gbp_m, key: 'industrial_downside_gbp_m', rd: round, color: '#94a3b8' },
-    { label: `R${base.data.round} risk-adjusted`, v: base.data.underwrite.risk_adjusted_land_value_gbp_m, key: 'risk_adjusted_land_value_gbp_m', rd: 0, color: '#f43f5e' },
+    { label: `R${base.data.round} risk-adjusted`, v: base.data.underwrite.risk_adjusted_land_value_gbp_m, key: 'risk_adjusted_land_value_gbp_m', rd: 0, color: '#fb7185' },
     { label: `R${cur.data.round} powered land`, v: u.risk_adjusted_land_value_gbp_m, key: 'risk_adjusted_land_value_gbp_m', rd: round, color: '#38bdf8' },
   ];
   const max = Math.max(...bars.map((b) => Number(b.v) || 0), 0.0001);
@@ -31,50 +31,36 @@ export function ValueLadder() {
   };
   return (
     <div className={`ladder ${drawerOpen ? 'ladder-shift' : ''}`} id="value-ladder">
-      <div className="sec-h" style={{ padding: '7px 10px 2px', margin: 0 }}>
-        Value ladder · {GBP}
-        {MILLION} {cur.sample ? <span className="badge-amber">sample data</span> : null}
+      <div className="ladder-h">
+        <span>Value ladder</span>
+        {cur.sample ? <span className="badge-amber">sample data</span> : null}
       </div>
       {bars.map((b) => (
         <div key={b.label} className="ladder-row">
-          <span className="text-slate-400 truncate">{b.label}</span>
+          <span>{b.label}</span>
           <span className="bar">
             <i style={{ width: `${Math.max(1, ((Number(b.v) || 0) / max) * 100)}%`, background: b.color }} />
           </span>
           <Fig v={b.v} prefix={GBP} unit={MILLION} metric={b.key} round={b.rd} digits={2} />
         </div>
       ))}
-      <div className="ladder-grid mt-1">
+      <div className="ladder-foot">
         <div>
-          <span className="k">IT load</span>
+          <span className="metric-l">IT load</span>
           <Fig v={m.it_load_mw} unit="MW" metric="it_load_mw" />
         </div>
         <div>
-          <span className="k">Grid capex</span>
+          <span className="metric-l">Grid capex</span>
           <Fig v={u.grid_connection_capex_gbp_m} prefix={GBP} unit={MILLION} metric="grid_connection_capex_gbp_m" digits={2} />
         </div>
         <div>
-          <span className="k">Nearest home</span>
+          <span className="metric-l">Nearest home</span>
           <Fig v={m.predicted_receptor_dba} unit="dBA" metric="predicted_receptor_dba" />
         </div>
         <div>
-          <span className="k">Mitigation + S106</span>
-          <Fig v={u.mitigation_and_s106_capex_gbp_m} prefix={GBP} unit={MILLION} metric="mitigation_and_s106_capex_gbp_m" digits={2} />
-        </div>
-        <div>
-          <span className="k">Gross powered land</span>
-          <Fig v={u.gross_powered_land_gbp_m} prefix={GBP} unit={MILLION} metric="gross_powered_land_gbp_m" />
-        </div>
-        <div>
-          <span className="k">Net per acre</span>
+          <span className="metric-l">Net per acre</span>
           <Fig v={perAcreK} prefix={GBP} unit="k" calc={perAcreCalc} digits={0} />
         </div>
-      </div>
-      <div className="flex flex-wrap gap-1 items-baseline" style={{ padding: '5px 10px 7px' }}>
-        <span className="k text-slate-500">Inputs</span>
-        {(u.citation_ids ?? []).map((id) => (
-          <SourceChip key={id} id={id} />
-        ))}
       </div>
     </div>
   );

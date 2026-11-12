@@ -6,7 +6,6 @@ import * as turf from '@turf/turf';
 import { featureIndex, fmtNum, receptorPts, resolveCitation, rounds, rowsById, siteCenter, siteRing } from '../components/data';
 import { dropRedLine, getState, hooks, openSource, setState, subscribe, useStore, type Callout, type State } from '../components/store';
 import { SourceChip } from '../components/Source';
-import { VIEWS } from '../components/Header';
 import { mapApi } from './api';
 import { buildLayers, distM, ease, fitFromRound, lerp, lerpFit, ringRadiusOf, type FitItem } from './layers';
 import { getDarkStyle, HOME_PADDING, HOME_VIEW, satStyle, UK_VIEW } from './styles';
@@ -63,8 +62,6 @@ export function MapView() {
   const phase = useStore((s) => s.phase);
   const redline = useStore((s) => s.layers.redline);
   const sel = useStore((s) => s.selection);
-  const view = useStore((s) => s.view);
-  const terrainOn = useStore((s) => s.view === 'satellite3d' && s.layers.terrain && !s.layers.testfit);
 
   useEffect(() => {
     const wantTerrain = (s: State) => s.view === 'satellite3d' && s.layers.terrain && !s.layers.testfit;
@@ -340,10 +337,6 @@ export function MapView() {
     <div className="absolute inset-0">
       {/* Inline + .map-root: maplibre-gl.css sets .maplibregl-map{position:relative}, which beats Tailwind's layered .absolute and collapsed the map to zero height. */}
       <div ref={ref} className="map-root" style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }} />
-      <div className="map-tag">
-        {VIEWS.find((v) => v.id === view)?.label}
-        {terrainOn ? ' · terrain on' : ''}
-      </div>
       {phase === 'landed' && !redline ? (
         <button className="map-btn" id="drop-redline" onClick={dropRedLine}>
           Drop red line
