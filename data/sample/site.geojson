@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SITE",
+        "claim": "Proposed data centre site boundary at Ratcliffe-on-Soar (approx 600 m square)",
+        "value": 600,
+        "unit": "m",
+        "lat": 52.865,
+        "lon": -1.255,
+        "source_org": "Hackathon assumption",
+        "url": "https://en.wikipedia.org/wiki/Ratcliffe-on-Soar_Power_Station",
+        "quote": "Approximate 600 m square centred on the former power station site for layout comparison.",
+        "retrieved": "2026-11-12",
+        "status": "assumption",
+        "check": "pass"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -1.2594640640003014,
+              52.86230506647503
+            ],
+            [
+              -1.2505359359996984,
+              52.86230506647503
+            ],
+            [
+              -1.2505359359996984,
+              52.86769493352497
+            ],
+            [
+              -1.2594640640003014,
+              52.86769493352497
+            ],
+            [
+              -1.2594640640003014,
+              52.86230506647503
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

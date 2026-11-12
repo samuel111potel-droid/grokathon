@@ -1,0 +1,14 @@
+{
+  "id": "C2",
+  "claim": "Homes within 400 m of any generator count as elevated noise/visual exposure",
+  "value": 400,
+  "unit": "m",
+  "lat": 52.865,
+  "lon": -1.255,
+  "source_org": "Hackathon assumption",
+  "url": "https://www.gov.uk/guidance/noise-policy-statement-for-england",
+  "quote": "Assumed 400 m screening radius from generators to residential receptors.",
+  "retrieved": "2026-11-12",
+  "status": "assumption",
+  "check": "pass"
+}
