@@ -43,6 +43,8 @@ export interface C3FactFile extends FactRow {
   generator_source_db?: number;
   facts: FactRow[];
   offers: OfferFact[];
+  /** Stated infrastructure gaps a developer could fund (C3-32, C3-33, C3-35). */
+  funding_gaps?: FactRow[];
 }
 
 export interface LayoutBlock {
@@ -63,6 +65,10 @@ export interface ObjectionCard {
   offer_id: string;
   row_ids: string[];
   severity: number;
+  /** Verbatim precedent / objection quote from C2. */
+  quote?: string;
+  /** Who raised the objection (from live C2). */
+  who_raised?: string;
 }
 
 export interface ObjectionsFile extends FactRow {

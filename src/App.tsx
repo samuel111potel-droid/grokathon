@@ -11,43 +11,66 @@ import {
 } from './lib/community';
 import { interpolateLayout } from './lib/interpolate';
 import {
+  hasLiveFile,
   loadAllFacts,
   loadC3,
   loadHomes,
   loadLayout,
+  loadListedBuildings,
   loadObjections,
   loadSite,
+  liveFileStemsPresent,
 } from './lib/loadData';
 import {
   minDistanceM,
   objectionRisk,
   validateLayout,
 } from './lib/score';
-import type { BlockKind, Layout } from './types';
+import type { BlockKind, FactRow, Layout } from './types';
 
 const ROUNDS = 3;
 const ANIM_MS = 1500;
 
+function pickNoiseSourceDb(facts: Record<string, FactRow>): {
+  db: number;
+  fact?: FactRow;
+} {
+  // Prefer an S2 row that mentions dB / generator source level.
+  const s2Candidates = Object.values(facts).filter(
+    (f) =>
+      f.id.startsWith('S2') &&
+      typeof f.value === 'number' &&
+      /dB|noise|generator/i.test(`${f.claim} ${f.unit}`),
+  );
+  if (s2Candidates[0]) {
+    return { db: s2Candidates[0].value as number, fact: s2Candidates[0] };
+  }
+  if (facts.N1?.value != null && !hasLiveFile('S2')) {
+    return { db: facts.N1.value, fact: facts.N1 };
+  }
+  return { db: 90, fact: s2Candidates[0] ?? facts.S2 };
+}
+
 export default function App() {
   const site = useMemo(() => loadSite(), []);
   const homesFact = useMemo(() => loadHomes(), []);
+  const listedBuildings = useMemo(() => loadListedBuildings(), []);
   const objections = useMemo(() => loadObjections(), []);
   const c3 = useMemo(() => loadC3(), []);
+  const liveStems = useMemo(() => liveFileStemsPresent(), []);
+  const liveOnly = liveStems.length > 0;
+
   const facts = useMemo(() => {
-    const ids = objections.cards.flatMap((c) => [
-      ...c.row_ids,
-      c.precedent_id,
-      c.offer_id,
-    ]);
+    const ids = objections.cards.flatMap((c) => c.row_ids);
     return loadAllFacts([
       ...ids,
       'P1',
+      'P2',
       'S1',
       'S2',
       'C1',
       'C2',
       'C3',
-      'N1',
       'SITE',
     ]);
   }, [objections.cards]);
@@ -58,11 +81,20 @@ export default function App() {
   );
 
   const homes = useMemo(
-    () => homesFact.homes.map((h) => ({ lon: h.lon, lat: h.lat })),
+    () =>
+      homesFact.homes.map((h) => ({
+        id: h.id,
+        lon: h.lon,
+        lat: h.lat,
+        fact: h,
+      })),
     [homesFact],
   );
 
-  const sourceDb = facts.N1?.value ?? c3.generator_source_db ?? 90;
+  const { db: sourceDb, fact: noiseFact } = useMemo(
+    () => pickNoiseSourceDb(facts),
+    [facts],
+  );
 
   const [round, setRound] = useState(0);
   const [displayLayout, setDisplayLayout] = useState<Layout>(layouts[0]);
@@ -95,9 +127,7 @@ export default function App() {
   function replan() {
     if (animating) return;
     if (round >= ROUNDS - 1) {
-      const from = layouts[round];
-      const to = layouts[0];
-      runAnimation(from, to, 0);
+      runAnimation(layouts[round], layouts[0], 0);
       return;
     }
     const next = round + 1;
@@ -125,17 +155,17 @@ export default function App() {
   }
 
   const scoredLayout = displayLayout;
-  const risk = objectionRisk(
-    objections.cards,
-    scoredLayout,
-    homes,
-    facts.C2.value ?? 400,
-  );
+  const radiusM =
+    Object.values(facts).find(
+      (f) => f.id.startsWith('C2') && f.unit === 'm' && f.value != null,
+    )?.value ?? 400;
+  const risk = objectionRisk(objections.cards, scoredLayout, homes, radiusM);
   const nearest = minDistanceM(scoredLayout, homes);
   const hasIt =
     scoredLayout.some((b) => b.kind === 'hall') &&
     scoredLayout.some((b) => b.kind === 'substation');
-  const itLoad = hasIt ? (facts.P1.value ?? 0) : 0;
+  const p1Fact = facts.P1;
+  const itLoad = hasIt ? (p1Fact?.value ?? 0) : 0;
 
   const meanNoise =
     homes.length === 0
@@ -153,15 +183,15 @@ export default function App() {
     },
     {
       label: 'IT load kept',
-      display: `${itLoad} ${facts.P1.unit}`,
-      fact: facts.P1,
+      display: `${itLoad} ${p1Fact?.unit ?? 'MW'}`,
+      fact: p1Fact,
     },
     {
       label: 'Nearest generator → home',
       display: Number.isFinite(nearest) ? `${Math.round(nearest)} m` : '—',
       fact: facts.S2,
     },
-  ];
+  ].filter((m) => m.fact);
 
   return (
     <div className="app">
@@ -185,6 +215,9 @@ export default function App() {
             {animating ? ' → …' : ''}
             {' · '}
             mean home noise {meanNoise.toFixed(1)} dB
+            {liveOnly
+              ? ` · live: ${liveStems.join(', ')}`
+              : ' · waiting for data/live'}
           </span>
         </div>
         <ul className="legend">
@@ -204,11 +237,15 @@ export default function App() {
             <span className="swatch site" />
             Site
           </li>
+          <li>
+            <span className="swatch listed" />
+            Listed (C1-32…59)
+          </li>
         </ul>
         <div className="noise-legend" aria-label="Home noise scale in dB">
           <span className="noise-legend-title">
             Home noise (dB)
-            {facts.N1 && <SourceChip fact={facts.N1} />}
+            {noiseFact && <SourceChip fact={noiseFact} />}
           </span>
           <ol className="noise-steps">
             {NOISE_SCALE_STEPS.map((step) => {
@@ -235,6 +272,7 @@ export default function App() {
           layout={layouts[0]}
           siteRing={site.ring}
           homes={homes}
+          listedBuildings={listedBuildings}
           sourceDb={sourceDb}
           viewState={viewState}
           onViewStateChange={setViewState}
@@ -244,6 +282,7 @@ export default function App() {
           facts={facts}
           c3={c3}
           round={round}
+          liveOnly={hasLiveFile('C2')}
         />
         <SiteMap
           id="right"
@@ -251,6 +290,7 @@ export default function App() {
           layout={displayLayout}
           siteRing={site.ring}
           homes={homes}
+          listedBuildings={listedBuildings}
           sourceDb={sourceDb}
           viewState={viewState}
           onViewStateChange={setViewState}

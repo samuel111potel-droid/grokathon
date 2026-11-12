@@ -2,6 +2,18 @@
 
 Every quantitative or geographic claim on screen is a **fact row**. Apps must load rows from `data/live/` when a file exists there, otherwise from `data/sample/`.
 
+## Live files (flat lists)
+
+`data/live/{C1,C2,C3,P1,P2,S1,S2}.json` are **flat arrays** of fact rows (see shape below). The loader in `src/lib/loadData.ts`:
+
+- Prefer each live file over any sample file of the same name; never mix sample figures in for a stem that has a live file.
+- Skip `status: "not_found"`.
+- Skip `check: "fail"` except **C1** rows (kept and shown with a grey **computed** chip).
+- Hide `C1-60` and `C1-61`.
+- Homes = `C1-04`…`C1-23`; listed buildings = `C1-32`…`C1-59`.
+- Objection cards = `C2-04`…`C2-14` (sample cards are not used once live C2 exists).
+- Community tab = all C3 rows; `C3-32`, `C3-33`, `C3-35` listed under “what a developer could fund”.
+
 ## Fact row
 
 One JSON object (or GeoJSON feature `properties`) with these fields:

@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import type {
-  C3FactFile,
-  FactRow,
-  ObjectionCard,
-  OfferFact,
-} from '../types';
+import type { C3FactFile, FactRow, ObjectionCard } from '../types';
 import { SourceChip } from './SourceChip';
 
 type Tab = 'objections' | 'community';
@@ -14,10 +9,15 @@ interface Props {
   facts: Record<string, FactRow>;
   c3: C3FactFile;
   round: number;
+  liveOnly: boolean;
 }
 
-export function SidePanel({ cards, facts, c3, round }: Props) {
+export function SidePanel({ cards, facts, c3, round, liveOnly }: Props) {
   const [tab, setTab] = useState<Tab>('objections');
+  const fundingGaps = c3.funding_gaps?.length
+    ? c3.funding_gaps
+    : (c3.offers ?? []).map((o) => o as FactRow);
+  const wardFacts = c3.facts ?? [];
 
   return (
     <aside className="side-panel" aria-label="Objections and community">
@@ -46,91 +46,100 @@ export function SidePanel({ cards, facts, c3, round }: Props) {
         <div className="objections" role="tabpanel">
           <header className="objections-header">
             <h2>Objections</h2>
-            <p>Round {round} of 2 — re-plan moves plant away from homes.</p>
+            <p>
+              {liveOnly
+                ? `Live C2 precedents · round ${round}`
+                : `Round ${round} of 2 — waiting for live C2 rows.`}
+            </p>
           </header>
-          <ul className="objection-list">
-            {cards.map((card) => {
-              const precedent = facts[card.precedent_id];
-              const offerFact = facts[card.offer_id] as OfferFact | undefined;
-              const whoFact = facts.C1;
-              const fixFact = facts[card.row_ids.find((id) => id !== card.precedent_id && id !== card.offer_id) ?? ''] ?? facts.OBJ;
-              return (
-                <li key={card.id} className="objection-card">
-                  <div className="objection-top">
-                    <span className="severity" data-level={card.severity}>
-                      Severity {card.severity}
-                    </span>
-                  </div>
-                  <h3>
-                    {card.theme}
-                    <SourceChip fact={facts.OBJ} />
-                  </h3>
-                  <p className="who">
-                    <span className="label">Who</span> {card.who_affected}{' '}
-                    {whoFact && <SourceChip fact={whoFact} />}
-                  </p>
-                  <p className="precedent">
-                    <span className="label">Precedent</span>{' '}
-                    {precedent ? (
-                      <>
-                        “{precedent.quote}” <SourceChip fact={precedent} />
-                      </>
-                    ) : (
-                      '—'
-                    )}
-                  </p>
-                  <p className="fix">
-                    <span className="label">Fix</span> {card.fix}{' '}
-                    {fixFact && <SourceChip fact={fixFact} />}
-                  </p>
-                  <p className="offer">
-                    <span className="label">Offer</span>{' '}
-                    {offerFact ? (
-                      <>
-                        {offerFact.offer} <SourceChip fact={offerFact} />
-                      </>
-                    ) : (
-                      '—'
-                    )}
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
+          {cards.length === 0 ? (
+            <p className="empty-panel">
+              No live objection cards yet. Place C2.json in data/live/ (rows
+              C2-04 … C2-14).
+            </p>
+          ) : (
+            <ul className="objection-list">
+              {cards.map((card) => {
+                const fact = facts[card.id] ?? facts[card.precedent_id];
+                return (
+                  <li key={card.id} className="objection-card">
+                    <div className="objection-top">
+                      <span className="severity">{card.id}</span>
+                      {fact && <SourceChip fact={fact} />}
+                    </div>
+                    <h3>{card.theme}</h3>
+                    <p className="who">
+                      <span className="label">Who</span>{' '}
+                      {card.who_raised ?? card.who_affected}{' '}
+                      {fact && <SourceChip fact={fact} />}
+                    </p>
+                    <p className="precedent">
+                      <span className="label">Quote</span>{' '}
+                      {card.quote ? (
+                        <>
+                          “{card.quote}” {fact && <SourceChip fact={fact} />}
+                        </>
+                      ) : (
+                        '—'
+                      )}
+                    </p>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       ) : (
         <div className="community-tab" role="tabpanel">
           <header className="objections-header">
             <h2>Community</h2>
-            <p>Gotham ward facts from C3 — each row carries its source.</p>
+            <p>C3 ward facts — each row carries its source.</p>
           </header>
-          <table className="ward-table">
-            <thead>
-              <tr>
-                <th>Fact</th>
-                <th>Value</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              {c3.facts.map((row) => (
-                <tr key={row.id}>
-                  <td>{row.claim}</td>
-                  <td>
-                    {row.value ?? '—'}
-                    {row.unit ? ` ${row.unit}` : ''}
-                  </td>
-                  <td>
-                    <SourceChip fact={row} />
-                  </td>
+          {wardFacts.length === 0 ? (
+            <p className="empty-panel">
+              No live C3 rows yet. Place C3.json in data/live/.
+            </p>
+          ) : (
+            <table className="ward-table">
+              <thead>
+                <tr>
+                  <th>Fact</th>
+                  <th>Value</th>
+                  <th>Source</th>
                 </tr>
+              </thead>
+              <tbody>
+                {wardFacts.map((row) => (
+                  <tr key={row.id}>
+                    <td>{row.claim}</td>
+                    <td>
+                      {row.value ?? '—'}
+                      {row.unit ? ` ${row.unit}` : ''}
+                    </td>
+                    <td>
+                      <SourceChip fact={row} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+
+          <h3 className="funding-title">What a developer could fund</h3>
+          <p className="funding-sub">Stated gaps C3-32, C3-33, C3-35</p>
+          {fundingGaps.length === 0 ? (
+            <p className="empty-panel">Gaps C3-32 / C3-33 / C3-35 not in live C3.</p>
+          ) : (
+            <ul className="funding-list">
+              {fundingGaps.map((gap) => (
+                <li key={gap.id}>
+                  <span className="funding-id">{gap.id}</span>
+                  <span>{gap.claim}</span>
+                  <SourceChip fact={gap} />
+                </li>
               ))}
-            </tbody>
-          </table>
-          <p className="community-note">
-            File {c3.id}
-            <SourceChip fact={c3} />
-          </p>
+            </ul>
+          )}
         </div>
       )}
     </aside>

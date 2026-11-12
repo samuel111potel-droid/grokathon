@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import Map, { NavigationControl } from 'react-map-gl/maplibre';
-import { PolygonLayer, SolidPolygonLayer } from '@deck.gl/layers';
+import { PolygonLayer, SolidPolygonLayer, TextLayer } from '@deck.gl/layers';
 import type { MapLayerMouseEvent, ViewStateChangeEvent } from 'react-map-gl/maplibre';
-import type { Layout, LonLat } from '../types';
+import type { FactRow, Layout, LonLat } from '../types';
 import { KIND_COLORS } from '../lib/colors';
 import { noiseAtHome, noiseColor, type NoiseRgba } from '../lib/community';
 import { DeckOverlay } from './DeckOverlay';
@@ -29,8 +29,8 @@ interface Props {
   label: string;
   layout: Layout;
   siteRing: [number, number][];
-  homes: LonLat[];
-  /** Generator source level (dB at 10 m) for noiseAtHome colouring. */
+  homes: Array<LonLat & { id?: string; fact?: FactRow }>;
+  listedBuildings?: FactRow[];
   sourceDb: number;
   viewState: CameraState;
   onViewStateChange: (next: CameraState) => void;
@@ -56,6 +56,7 @@ export function SiteMap({
   layout,
   siteRing,
   homes,
+  listedBuildings = [],
   sourceDb,
   viewState,
   onViewStateChange,
@@ -65,7 +66,7 @@ export function SiteMap({
       homes.map((h, i) => {
         const { db } = noiseAtHome(layout, h, sourceDb);
         return {
-          id: `home-${i}`,
+          id: h.id ?? `home-${i}`,
           lon: h.lon,
           lat: h.lat,
           db,
@@ -118,8 +119,25 @@ export function SiteMap({
       },
     });
 
-    return [siteLayer, blocksLayer, homesLayer];
-  }, [homesWithNoise, id, layout, siteRing]);
+    const listedLayer = new TextLayer({
+      id: `${id}-listed`,
+      data: listedBuildings.filter(
+        (b) => Number.isFinite(b.lon) && Number.isFinite(b.lat),
+      ),
+      getPosition: (d: FactRow) => [d.lon, d.lat],
+      getText: (d: FactRow) => d.id.replace(/^C1-/, 'LB'),
+      getSize: 11,
+      getColor: [210, 190, 140, 230],
+      getTextAnchor: 'middle',
+      getAlignmentBaseline: 'center',
+      billboard: true,
+      background: true,
+      getBackgroundColor: [40, 36, 28, 200],
+      backgroundPadding: [3, 2],
+    });
+
+    return [siteLayer, blocksLayer, homesLayer, listedLayer];
+  }, [homesWithNoise, id, layout, listedBuildings, siteRing]);
 
   return (
     <div className="map-panel">
