@@ -198,7 +198,7 @@ export function buildLayers(c: Ctx): any[] {
     const hi = Math.max(...vals);
     out.push(
       new GeoJsonLayer({
-        id: 'areas',
+        id: 'cl-areas',
         data: areas as any,
         pickable: true,
         opacity: dim,
@@ -218,7 +218,7 @@ export function buildLayers(c: Ctx): any[] {
     const zmax = Math.max(...geoLayers.flood.data.features.map((f) => Number(f.properties?.zone) || 0));
     out.push(
       new GeoJsonLayer({
-        id: 'flood',
+        id: 'cl-flood',
         data: geoLayers.flood.data as any,
         pickable: true,
         opacity: dim,
@@ -232,7 +232,7 @@ export function buildLayers(c: Ctx): any[] {
   if (L.contamination && geoLayers.contamination.data.features.length)
     out.push(
       new GeoJsonLayer({
-        id: 'contamination',
+        id: 'cl-contamination',
         data: geoLayers.contamination.data as any,
         pickable: true,
         opacity: dim,
@@ -247,7 +247,7 @@ export function buildLayers(c: Ctx): any[] {
   if (L.ecology && geoLayers.ecology.data.features.length)
     out.push(
       new GeoJsonLayer({
-        id: 'ecology',
+        id: 'cl-ecology',
         data: geoLayers.ecology.data as any,
         pickable: true,
         opacity: dim,
@@ -262,7 +262,7 @@ export function buildLayers(c: Ctx): any[] {
   if (L.lines && geoLayers.lines.data.features.length && !flows)
     out.push(
       new GeoJsonLayer({
-        id: 'lines',
+        id: 'cl-lines',
         data: geoLayers.lines.data as any,
         pickable: true,
         getLineColor: (f: any) => [...lineColor(f.properties), 220] as any,
@@ -273,7 +273,7 @@ export function buildLayers(c: Ctx): any[] {
   if (L.fibre && geoLayers.fibre.data.features.length)
     out.push(
       new GeoJsonLayer({
-        id: 'fibre',
+        id: 'cl-fibre',
         data: geoLayers.fibre.data as any,
         pickable: true,
         opacity: dim,
@@ -285,14 +285,14 @@ export function buildLayers(c: Ctx): any[] {
       } as any),
     );
   if (L.route && route.data.features.length && !flows) {
-    out.push(new GeoJsonLayer({ id: 'route-glow', data: route.data as any, getLineColor: [56, 189, 248, 55], getLineWidth: 9, ...px }));
-    out.push(new GeoJsonLayer({ id: 'route', data: route.data as any, pickable: true, getLineColor: [56, 189, 248, 245], getLineWidth: 2.5, ...px }));
+    out.push(new GeoJsonLayer({ id: 'cl-route-glow', data: route.data as any, getLineColor: [56, 189, 248, 55], getLineWidth: 9, ...px }));
+    out.push(new GeoJsonLayer({ id: 'cl-route', data: route.data as any, pickable: true, getLineColor: [56, 189, 248, 245], getLineWidth: 2.5, ...px }));
   }
 
   if (L.heatmap && receptorPts.length)
     out.push(
       new HeatmapLayer({
-        id: 'heatmap',
+        id: 'cl-heatmap',
         data: receptorPts,
         getPosition: (d: any) => [d.lon, d.lat],
         getWeight: 1,
@@ -308,7 +308,7 @@ export function buildLayers(c: Ctx): any[] {
   if (L.ring && gc && c.ring > 1)
     out.push(
       new ScatterplotLayer({
-        id: 'acoustic-ring',
+        id: 'cl-acoustic-ring',
         data: [{ position: gc, r: c.ring }],
         getPosition: (d: any) => d.position,
         getRadius: (d: any) => d.r,
@@ -327,7 +327,7 @@ export function buildLayers(c: Ctx): any[] {
   if (s.rings.length)
     out.push(
       new ScatterplotLayer({
-        id: 'grok-rings',
+        id: 'cl-grok-rings',
         data: s.rings,
         getPosition: (d: any) => [d.lon, d.lat],
         getRadius: (d: any) => d.radius_m,
@@ -343,7 +343,7 @@ export function buildLayers(c: Ctx): any[] {
   if (s.measures.length)
     out.push(
       new PathLayer({
-        id: 'grok-measures',
+        id: 'cl-grok-measures',
         data: s.measures,
         getPath: (d: any) => [d.from, d.to],
         getColor: [255, 255, 255, 240],
@@ -359,7 +359,7 @@ export function buildLayers(c: Ctx): any[] {
     if (misc.length)
       out.push(
         new ScatterplotLayer({
-          id: 'pins',
+          id: 'cl-pins',
           data: misc,
           pickable: true,
           opacity: dim,
@@ -377,7 +377,7 @@ export function buildLayers(c: Ctx): any[] {
   if (L.receptors && receptorPts.length)
     out.push(
       new ScatterplotLayer({
-        id: 'receptors',
+        id: 'cl-receptors',
         data: receptorPts,
         pickable: true,
         opacity: dim,
@@ -398,7 +398,7 @@ export function buildLayers(c: Ctx): any[] {
     if (pts.length)
       out.push(
         new ScatterplotLayer({
-          id: 'precedents',
+          id: 'cl-precedents',
           data: pts,
           pickable: true,
           opacity: dim,
@@ -418,7 +418,7 @@ export function buildLayers(c: Ctx): any[] {
     if (pts.length)
       out.push(
         new ScatterplotLayer({
-          id: 'substations',
+          id: 'cl-substations',
           data: pts,
           pickable: true,
           opacity: flows ? 0.7 : 1,
@@ -438,7 +438,7 @@ export function buildLayers(c: Ctx): any[] {
   if (c.fit.length)
     out.push(
       new PolygonLayer({
-        id: 'testfit',
+        id: 'cl-testfit',
         data: c.fit,
         pickable: true,
         extruded: true,
@@ -462,7 +462,7 @@ export function buildLayers(c: Ctx): any[] {
     if (subs.length)
       out.push(
         new ColumnLayer({
-          id: 'col-substations',
+          id: 'cl-col-substations',
           data: subs,
           pickable: true,
           diskResolution: 6,
@@ -487,7 +487,7 @@ export function buildLayers(c: Ctx): any[] {
       const vmax = Math.max(1e-6, ...cols.map((d) => d.v));
       out.push(
         new ColumnLayer({
-          id: 'col-areas',
+          id: 'cl-col-areas',
           data: cols,
           pickable: true,
           diskResolution: 24,
@@ -503,7 +503,7 @@ export function buildLayers(c: Ctx): any[] {
     } else if (receptorPts.length)
       out.push(
         new HexagonLayer({
-          id: 'hex-receptors',
+          id: 'cl-hex-receptors',
           data: receptorPts,
           getPosition: (d: any) => [d.lon, d.lat],
           radius: 70,
@@ -518,11 +518,11 @@ export function buildLayers(c: Ctx): any[] {
   // --- Grid flows view ---
   if (flows && FLOW_PATHS.length) {
     out.push(
-      new PathLayer({ id: 'flow-base', data: FLOW_PATHS, getPath: (d: any) => d.path, getColor: (d: any) => [d.color[0], d.color[1], d.color[2], 70], getWidth: 1.5, widthUnits: 'pixels' }),
+      new PathLayer({ id: 'cl-flow-base', data: FLOW_PATHS, getPath: (d: any) => d.path, getColor: (d: any) => [d.color[0], d.color[1], d.color[2], 70], getWidth: 1.5, widthUnits: 'pixels' }),
     );
     out.push(
       new TripsLayer({
-        id: 'flow-trips',
+        id: 'cl-flow-trips',
         data: TRIPS,
         getPath: (d: any) => d.path,
         getTimestamps: (d: any) => d.ts,
@@ -541,7 +541,7 @@ export function buildLayers(c: Ctx): any[] {
   if (c.hlPos.length)
     out.push(
       new ScatterplotLayer({
-        id: 'highlight',
+        id: 'cl-highlight',
         data: c.hlPos,
         getPosition: (d: any) => d,
         radiusUnits: 'pixels',

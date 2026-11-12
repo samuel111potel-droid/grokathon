@@ -81,6 +81,10 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 
 /* value ladder */
 .ladder { position: absolute; right: 12px; bottom: 28px; width: 372px; background: var(--panel); border: 1px solid var(--line); z-index: 5; }
+.ladder { transition: right 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
+.ladder { transition: right 0.28s cubic-bezier(0.22, 1, 0.36, 1), bottom 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
+/* drawer open: slide clear of the drawer and above the Grok bar */
+.ladder-shift { right: 396px; bottom: 190px; }
 .ladder-row { display: grid; grid-template-columns: 118px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 3px 10px; }
 .bar { height: 9px; background: #0f172a; border: 1px solid var(--line); position: relative; }
 .bar > i { position: absolute; left: 0; top: 0; bottom: 0; transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1); }
@@ -129,7 +133,8 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 .maplibregl-ctrl-group button span { filter: invert(0.85); }
 
 /* Grok co-pilot */
-.grok { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 6; width: min(560px, calc(100% - 420px)); min-width: 380px; }
+/* centred in the map area left of the Value Ladder so the two never overlap at 1440x900 */
+.grok { position: absolute; left: calc((100% - 396px) / 2); bottom: 26px; transform: translateX(-50%); z-index: 6; width: min(520px, calc(100% - 440px)); min-width: 340px; }
 .grok-bar { display: flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid #334155; padding: 6px 8px; }
 .grok-bar:focus-within { border-color: var(--accent); }
 .grok-orb { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--accent); display: grid; place-items: center; font-family: var(--font-mono); font-size: 10px; color: var(--accent); flex: 0 0 auto; }

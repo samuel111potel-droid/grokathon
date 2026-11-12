@@ -7,6 +7,7 @@ const MILLION = 'm';
 
 export function ValueLadder() {
   const round = useStore((s) => s.round);
+  const drawerOpen = useStore((s) => !!s.drawer);
   const cur = rounds[round];
   const base = rounds[0];
   if (!cur || !base) return null;
@@ -29,7 +30,7 @@ export function ValueLadder() {
     citation_ids: cur.data.metric_sources?.risk_adjusted_land_value_gbp_m?.citation_ids ?? u.citation_ids ?? [],
   };
   return (
-    <div className="ladder" id="value-ladder">
+    <div className={`ladder ${drawerOpen ? 'ladder-shift' : ''}`} id="value-ladder">
       <div className="sec-h" style={{ padding: '7px 10px 2px', margin: 0 }}>
         Value ladder · {GBP}
         {MILLION} {cur.sample ? <span className="badge-amber">sample data</span> : null}

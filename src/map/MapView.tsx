@@ -34,7 +34,7 @@ function calloutEl(c: Callout): HTMLElement {
     const cit = resolveCitation(id);
     if (cit.kind === 'failed' || cit.kind === 'unknown') continue;
     // Values shown on a callout always come from the cited row, never from the model's text.
-    if (cit.kind === 'row' && typeof cit.row.value === 'number') chips.append(mk('span', 'num', `${fmtNum(cit.row.value)} ${cit.row.unit ?? ''}`.trim()));
+    if (!c.calc && cit.kind === 'row' && typeof cit.row.value === 'number') chips.append(mk('span', 'num', `${fmtNum(cit.row.value)} ${cit.row.unit ?? ''}`.trim()));
     const b = mk('button', cit.kind === 'row' && cit.row.status === 'assumption' ? 'chip chip-amber' : 'chip', `[${id}]`);
     b.onclick = (e) => {
       e.stopPropagation();
