@@ -11,3 +11,5 @@ data/msci_cache/
 *msci_raw*
 *.mp4
 !demo/*.mp4
+
+data/out/
