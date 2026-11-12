@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "MSCI RCA MCP": {
+      "type": "http",
+      "url": "https://mcp.msci.com/mcp/v1.0/mcp"
+    }
+  }
+}
