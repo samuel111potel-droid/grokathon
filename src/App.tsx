@@ -21,11 +21,7 @@ import {
   loadSite,
   liveFileStemsPresent,
 } from './lib/loadData';
-import {
-  minDistanceM,
-  objectionRisk,
-  validateLayout,
-} from './lib/score';
+import { minDistanceM, validateLayout } from './lib/score';
 import type { BlockKind, FactRow, Layout } from './types';
 
 const ROUNDS = 3;
@@ -75,10 +71,10 @@ function formatValue(fact: FactRow | undefined, fallback: string): string {
   const raw = Array.isArray(fact.value)
     ? fact.value.join('–')
     : String(fact.value);
-  const unit = /unit not printed|field /i.test(fact.unit)
-    ? 'MVA'
-    : fact.unit;
-  return `${raw} ${unit}`.trim();
+  if (/unit not printed|field /i.test(fact.unit) || /mva/i.test(fact.unit)) {
+    return `${raw} (unit not stated in source)`;
+  }
+  return `${raw} ${fact.unit}`.trim();
 }
 
 export default function App() {
@@ -185,41 +181,43 @@ export default function App() {
   }
 
   const scoredLayout = displayLayout;
-  const radiusM = 300;
-  const risk = objectionRisk(objections.cards, scoredLayout, homes, radiusM);
   const nearest = minDistanceM(scoredLayout, homes);
   const headroomFact = pickFact(facts, ['P1-03', 'P1-04', 'P1-07', 'P1']);
-  const homeFact = pickFact(facts, ['C1-04', 'C1']);
-  const riskFact =
-    pickFact(facts, ['S1-13', 'C2-04', 'S1-01', 'S1']) ?? facts.C2;
+  const objectionsShown = objections.cards.length;
 
   const meanNoise =
     homes.length === 0
       ? 0
       : homes.reduce(
-          (sum, h) => sum + noiseAtHome(scoredLayout, h, sourceDb).db,
+          (sum, h) =>
+            sum +
+            noiseAtHome(scoredLayout, h, sourceDb, { refDistanceM: 7 }).db,
           0,
         ) / homes.length;
 
-  const metrics = [
+  const metrics: {
+    label: string;
+    display: string;
+    fact?: FactRow;
+  }[] = [
     {
-      label: 'Objection risk',
-      display: risk.toFixed(1),
-      fact: riskFact,
+      label: 'Objections shown',
+      display: String(objectionsShown),
     },
+    ...(headroomFact
+      ? [
+          {
+            label: 'Nearest substation headroom',
+            display: formatValue(headroomFact, '—'),
+            fact: headroomFact,
+          },
+        ]
+      : []),
     {
-      label: 'Nearest substation headroom',
-      display: formatValue(headroomFact, '—'),
-      fact: headroomFact,
-    },
-    {
-      label: 'Nearest generator → home',
+      label: 'computed, generator centre to nearest home',
       display: Number.isFinite(nearest) ? `${Math.round(nearest)} m` : '—',
-      fact: homeFact,
     },
-  ].filter((m): m is { label: string; display: string; fact: FactRow } =>
-    Boolean(m.fact),
-  );
+  ];
 
   return (
     <div className="app">
@@ -296,7 +294,7 @@ export default function App() {
       <main className="workspace">
         <SiteMap
           id="left"
-          label="Round 0 — generators nearest homes"
+          label="Round 0: original plan"
           layout={layouts[0]}
           siteRing={site.ring}
           homes={homes}

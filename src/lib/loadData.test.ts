@@ -2,8 +2,11 @@ import { describe, expect, it } from 'vitest';
 import {
   adaptFlatRows,
   inIdRange,
+  loadHomes,
+  loadLayout,
   rowSuffix,
 } from './loadData';
+import { minDistanceM } from './score';
 import type { FactRow } from '../types';
 
 function row(
@@ -50,5 +53,17 @@ describe('flat row adapter', () => {
     expect(ids).not.toContain('C1-60');
     expect(ids).not.toContain('C1-61');
     expect(ids).not.toContain('C2-04'); // non-C1 fail dropped
+  });
+});
+
+describe('layout rounds vs C1-04…C1-23', () => {
+  it('nearest generator-to-home distance rises each round', () => {
+    const homes = loadHomes().homes;
+    expect(homes.length).toBeGreaterThan(0);
+    const d0 = minDistanceM(loadLayout(0), homes);
+    const d1 = minDistanceM(loadLayout(1), homes);
+    const d2 = minDistanceM(loadLayout(2), homes);
+    expect(d0).toBeLessThan(d1);
+    expect(d1).toBeLessThan(d2);
   });
 });
