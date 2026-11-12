@@ -2,8 +2,13 @@
 node_modules/
 .env
 .env.*
+!.env.example
 __pycache__/
 .venv/
 dist/
 data/msci_cache/
+data/cache/
 *.rca.json
+*msci_raw*
+*.mp4
+!demo/*.mp4

@@ -1,0 +1,17 @@
+---
+description: Demo-first hackathon execution rules and strict per-lane file ownership
+alwaysApply: true
+---
+
+# Demo-First Hackathon Rules
+
+- **Locked Hero Site (`Ratcliffe-on-Soar Power Station`, `52.8652963, -1.2550158`):** All data collection, fixtures, spatial layers, and benchmarks across the entire repo MUST centre on Ratcliffe-on-Soar Power Station (`NG11 0EE`, Rushcliffe Borough Council + adjacent 5 km LPAs, NGED East Midlands / NGET 400 kV) and its surrounding area — covering socio-economic & community, planning & permitting, power, environmental, brownfield contamination, geospatial, and regional M1 J24 market comps.
+- **Optimise exclusively for the 2-minute demo video (5 shots in `docs/EXECUTION_PLAN.md`).** Do not add auth, multi-project dashboards, settings pages, PDF exporters, or uncached live API calls in the browser.
+- **Respect lane boundaries (`AGENTS.md`):**
+  - Lane 1 (Power): `data/out/P1.json`, `data/out/P2.json`, `scripts/power/`
+  - Lane 2 (Community/Red Team): `data/out/C1..C3.json`, `data/out/objections.json`, `data/receipts/ledger.csv`, `demo/clips/`
+  - Lane 3 (Capital Markets): `data/receipts/msci_receipts.json`, `data/out/M1_summary.json`, `src/engine/underwrite.ts`
+  - Lane 4 (Physics & Solver): `data/site.geojson`, `data/out/S1..S2.json`, `data/rounds/`, `data/fixtures/`, `src/engine/layout.ts`, `src/engine/acoustics.ts`, `src/types/`
+  - Lane 5 (UI): `src/App.tsx`, `src/map/`, `src/components/`, `src/styles/`
+- **Code computes math; models extract quotes.** Never use an LLM at runtime to calculate distances, dB levels, MW capacity, or valuation sums.
+- **Round 0 must be visibly flawed** (generators near residential receptors) so the animated Round 0 -> Round 1 -> Round 2 mitigation loop reads in five seconds on a muted video.
