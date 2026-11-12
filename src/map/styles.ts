@@ -3,7 +3,8 @@ import { siteCenter } from '../components/data';
 const DEM_TILES = ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'];
 const dem = () => ({ type: 'raster-dem', tiles: DEM_TILES, encoding: 'terrarium', tileSize: 256, maxzoom: 15, attribution: 'Terrain: Mapzen / AWS Open Data' });
 
-/** Satellite 3D: Esri World Imagery + terrarium DEM terrain + hillshade + dark label overlay. No API keys. */
+/** Satellite 3D: Esri World Imagery + terrarium DEM terrain + hillshade. No API keys.
+ *  (The CARTO raster label overlay was removed: its tiles now come back watermarked "API KEY REQUIRED".) */
 export function satStyle(withTerrain: boolean): any {
   const style: any = {
     version: 8,
@@ -15,12 +16,6 @@ export function satStyle(withTerrain: boolean): any {
         maxzoom: 19,
         attribution: 'Imagery © Esri',
       },
-      labels: {
-        type: 'raster',
-        tiles: ['a', 'b', 'c'].map((s) => `https://${s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png`),
-        tileSize: 256,
-        attribution: '© CARTO © OpenStreetMap contributors',
-      },
       dem: dem(),
       'dem-hs': dem(),
     },
@@ -28,7 +23,6 @@ export function satStyle(withTerrain: boolean): any {
       { id: 'bg', type: 'background', paint: { 'background-color': '#05070c' } },
       { id: 'esri', type: 'raster', source: 'esri', paint: { 'raster-saturation': -0.3, 'raster-brightness-max': 0.8, 'raster-contrast': 0.1 } },
       { id: 'hillshade', type: 'hillshade', source: 'dem-hs', paint: { 'hillshade-exaggeration': 0.3, 'hillshade-shadow-color': '#020617' } },
-      { id: 'labels', type: 'raster', source: 'labels', paint: { 'raster-opacity': 0.85 } },
     ],
   };
   if (withTerrain) style.terrain = { source: 'dem', exaggeration: 1.3 };
