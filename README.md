@@ -1,4 +1,4 @@
-# Grokathon — Watts Up DC
+# Grokathon — Watts Up
 
 > **AI plans the data centre. The neighbours object. AI plans it again.**
 >
