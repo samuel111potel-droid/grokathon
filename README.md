@@ -1,4 +1,4 @@
-# Grokathon — ConsentLoop DC
+# Grokathon — Watts Up DC
 
 > **AI plans the data centre. The neighbours object. AI plans it again.**
 >
